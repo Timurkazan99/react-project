@@ -1,4 +1,3 @@
-import React from 'react';
 import NavBar from '../Navbar/Navbar';
 import AppRouter from '../AppRouter/AppRouter';
 
