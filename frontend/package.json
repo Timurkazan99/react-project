@@ -33,6 +33,7 @@
       "react-app/jest"
     ]
   },
+  "linter": "npx eslint . --fix",
   "workspaces": [
     "frontend"
   ],

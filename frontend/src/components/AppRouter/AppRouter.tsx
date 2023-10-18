@@ -3,12 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { routes } from '../../routes';
 import { MAIN } from '../../utils/const';
 
-
-
-
-
 const AppRouter = () => {
-
     return (
         <Routes>
             {routes.map(({ path, Component }) =>

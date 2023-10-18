@@ -1,9 +1,7 @@
 import React from 'react-dom';
 
 const NavBar = () => {
-    return(
-        
-        
+    return(   
         <div className="Nav__container">
 НАвбар
         </div>
