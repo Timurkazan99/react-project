@@ -1,8 +1,5 @@
-
-const SignUp = () => {
-    return (
-        <></>
-    );
-};
+function SignUp() {
+  return <div />;
+}
 
 export default SignUp;
