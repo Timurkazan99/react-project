@@ -14,6 +14,9 @@ export const favoriteSlice = createSlice({
     name: 'favorite',
     initialState,
     reducers: {
+        initFavoriteCountry(state, action: PayloadAction<Country[]>) {
+            state.favorite = action.payload;
+        },
         addFavoriteCoutery(state, action: PayloadAction<Country>) {
             state.favorite = state.favorite.concat(action.payload);
         },
