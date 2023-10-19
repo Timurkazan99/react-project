@@ -1,18 +1,24 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import countryReduser from './reducers/countrySlice';
+import countryReducer from './reducers/countrySlice';
+import userReducer from './reducers/userSlice';
+import historyReducer from './reducers/historySlice';
+import favoriteReducer from './reducers/favoriteSlice';
 
 
-const rootReduser = combineReducers({
-    countryReduser
+const rootReducer = combineReducers({
+    countryReducer,
+    userReducer,
+    historyReducer,
+    favoriteReducer
 });
 
 export const setupStore = () => {
     return configureStore({
-        reducer: rootReduser
+        reducer: rootReducer
     });
 };
 
-export type RootState = ReturnType<typeof rootReduser>
+export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>
 export type AppDispatch = AppStore['dispatch']
 

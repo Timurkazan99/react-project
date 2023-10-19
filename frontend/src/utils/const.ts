@@ -9,6 +9,12 @@ export const HISTORY = '/history';
 
 
 
+//Limit pagination
+export const LIMIT = process.env.LIMIT || 20;
+
+
+
+
 
 
 
