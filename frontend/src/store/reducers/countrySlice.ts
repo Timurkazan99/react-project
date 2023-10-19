@@ -4,11 +4,13 @@ import { Country } from '../../models/country';
 
 interface CountryState {
     countries: Country[]
+    country: Country | null
     isLoading: boolean
     error: string
 }
 
 const initialState: CountryState = {
+    country: null,
     countries: [],
     isLoading: false,
     error: '',
@@ -18,18 +20,31 @@ export const countrySlice = createSlice({
     name: 'country',
     initialState,
     reducers: {
-        countryFetching(state) {
+        countriesFetching(state) {
             state.isLoading = true;
         },
-        countryFetchingSuccess(state, action: PayloadAction<Country[]>) {
+        countriesFetchingSuccess(state, action: PayloadAction<Country[]>) {
             state.isLoading = false;
             state.error = '';
             state.countries = action.payload;
         },
-        countryFetchingError(state, action: PayloadAction<string>) {
+        countriesFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false;
             state.error = action.payload;
-        }
+        },
+        countryFetchingById(state) {
+            state.isLoading = true;
+        },
+        countryFetchingByIdSuccess(state, action: PayloadAction<Country | null>) {
+            state.isLoading = false;
+            state.error = '';
+            state.country = action.payload;
+        },
+        countryFetchingByIdError(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
+
     }
 });
 
