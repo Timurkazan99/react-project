@@ -1,14 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-interface History {
-    type: string
-    search: string
-    timeStamp: number
-}
-
-interface HistoryState {
-    history: History[]
-}
+import { HistoryState } from '../../types/types';
+import { History } from '../../types/types';
 
 const initialState: HistoryState = {
     history: []

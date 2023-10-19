@@ -1,26 +1,26 @@
 import { AppDispatch } from '../store';
 import { countrySlice } from '../reducers/countrySlice';
-import { Country } from '../../models/country';
 import { getErrorMessage } from '../../utils/helper';
+import { getAll, getById } from '../../API';
 
 
 
 export const fetchCountry = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(countrySlice.actions.countriesFetching());
-        const response =   [] as Country[];  // вместо этой строки - выборка Axios
-        dispatch(countrySlice.actions.countriesFetchingSuccess(response));
+        const data = await getAll();
+        dispatch(countrySlice.actions.countriesFetchingSuccess(data));
     } catch (e) {
         dispatch(countrySlice.actions.countriesFetchingError(getErrorMessage(e)));
     }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const fetchCountryById = (_id: string) => async (dispatch: AppDispatch) => {
+
+export const fetchCountryById = (id: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(countrySlice.actions.countryFetchingById());
-        const response =   null;  // вместо этой строки - выборка Axios
-        dispatch(countrySlice.actions.countryFetchingByIdSuccess(response));
+        const data = await getById(id);
+        dispatch(countrySlice.actions.countryFetchingByIdSuccess(data));
     } catch (e) {
         dispatch(countrySlice.actions.countryFetchingByIdError(getErrorMessage(e)));
     }

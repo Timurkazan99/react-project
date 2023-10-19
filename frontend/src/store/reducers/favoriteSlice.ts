@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Country } from '../../models/country';
-
+import { Country } from '../../types/types';
 
 interface FavoriteState {
     favorite: Country[]

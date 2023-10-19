@@ -1,13 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Country } from '../../models/country';
-
-
-interface CountryState {
-    countries: Country[]
-    country: Country | null
-    isLoading: boolean
-    error: string
-}
+import { Country, CountryState } from '../../types/types';
 
 const initialState: CountryState = {
     country: null,
@@ -44,7 +36,6 @@ export const countrySlice = createSlice({
             state.isLoading = false;
             state.error = action.payload;
         },
-
     }
 });
 
