@@ -4,7 +4,7 @@ import { getErrorMessage } from '../../utils/helper';
 import { getAll, getById } from '../../API';
 
 
-
+//выборка всех стран
 export const fetchCountry = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(countrySlice.actions.countriesFetching());
@@ -15,7 +15,7 @@ export const fetchCountry = () => async (dispatch: AppDispatch) => {
     }
 };
 
-
+//выборка одной страны
 export const fetchCountryById = (id: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(countrySlice.actions.countryFetchingById());

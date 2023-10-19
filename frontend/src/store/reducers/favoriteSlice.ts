@@ -1,23 +1,19 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Country } from '../../types/types';
-
-interface FavoriteState {
-    favorite: Country[]
-}
+import { Country, CountryId, FavoriteState } from '../../types/types';
 
 const initialState: FavoriteState = {
-    favorite: []
+    countryId: []
 };
 
 export const favoriteSlice = createSlice({
     name: 'favorite',
     initialState,
     reducers: {
-        initFavoriteCountry(state, action: PayloadAction<Country[]>) {
-            state.favorite = action.payload;
+        initFavoriteCountry(state, action: PayloadAction<CountryId[]>) {
+            state.countryId = action.payload;
         },
-        addFavoriteCoutery(state, action: PayloadAction<Country>) {
-            state.favorite = state.favorite.concat(action.payload);
+        addFavoriteCoutery(state, action: PayloadAction<CountryId>) {
+            state.countryId = state.countryId.concat(action.payload);
         },
     }
 });

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Country, CountryState } from '../../types/types';
+import { Country, CountryState, FullCountry } from '../../types/types';
 
 const initialState: CountryState = {
     country: null,
@@ -27,7 +27,7 @@ export const countrySlice = createSlice({
         countryFetchingById(state) {
             state.isLoading = true;
         },
-        countryFetchingByIdSuccess(state, action: PayloadAction<Country | null>) {
+        countryFetchingByIdSuccess(state, action: PayloadAction<FullCountry | null>) {
             state.isLoading = false;
             state.error = '';
             state.country = action.payload;

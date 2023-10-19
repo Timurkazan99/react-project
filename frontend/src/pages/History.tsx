@@ -1,8 +1,5 @@
-
-const History = () => {
-    return (
-        <></>
-    );
-};
+function History() {
+  return <div />;
+}
 
 export default History;
