@@ -1,9 +1,8 @@
-
-const Favorites = () => {
-    return (
-        <>
-        </>
-    );
-};
+function Favorites() {
+  return (
+    <>
+    </>
+  );
+}
 
 export default Favorites;

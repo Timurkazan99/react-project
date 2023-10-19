@@ -1,8 +1,5 @@
-
-const SignIn = () => {
-    return (
-        <></>
-    );
-};
+function SignIn() {
+  return <div />;
+}
 
 export default SignIn;

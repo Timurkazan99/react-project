@@ -1,8 +1,5 @@
-
-const Search = () => {
-    return (
-        <></>
-    );
-};
+function Search() {
+  return <div />;
+}
 
 export default Search;
