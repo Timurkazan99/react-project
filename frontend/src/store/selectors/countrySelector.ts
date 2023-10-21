@@ -16,3 +16,6 @@ export const getCountriesPaginat = (state: RootState, page: number, limit: numbe
 
   return state.country.AllCountries.slice(start, end);
 };
+
+// eslint-disable-next-line  max-len
+export const getMaxPage = ({ country }: RootState, limit: number) => Math.ceil(country.AllCountries.length / limit);

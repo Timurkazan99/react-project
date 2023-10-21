@@ -8,4 +8,6 @@ export const FAVORITES = '/favorites';
 export const HISTORY = '/history';
 
 // Limit pagination
-export const LIMIT = process.env.LIMIT || 20;
+export const LIMIT = Number(process.env.LIMIT) || 20;
+
+export const INPUT_DELAY = 500; // delay in ms
