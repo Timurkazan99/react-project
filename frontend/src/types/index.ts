@@ -17,3 +17,5 @@ export type {
   CountryState,
   FavoriteState,
 };
+
+export { default as SearchSelectTypes } from './SearchSelectTypes';
