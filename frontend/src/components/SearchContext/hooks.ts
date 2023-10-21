@@ -1,9 +1,9 @@
 import {
   createContext, useCallback, useContext, useMemo, useState,
 } from 'react';
-import { Context, SearchSelectKeys } from './type';
+import { Context } from './type';
 import getEnumKeyByString from '../../utils/getEnumKeyByString';
-import { Country, SearchSelectTypes } from '../../types';
+import { Country, SearchSelectTypes, SearchSelectKeys } from '../../types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const SearchContext = createContext<Context>({

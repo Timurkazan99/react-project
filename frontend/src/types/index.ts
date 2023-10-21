@@ -18,4 +18,4 @@ export type {
   FavoriteState,
 };
 
-export { default as SearchSelectTypes } from './SearchSelectTypes';
+export { SearchSelectTypes, type SearchSelectKeys } from './SearchSelectTypes';

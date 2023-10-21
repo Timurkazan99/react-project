@@ -4,7 +4,7 @@ import {
 import getEnumKeys from '../../utils/getEnumKeys';
 import { SearchSelectTypes } from '../../types';
 import Option from '../Option';
-import { useSearchContext } from '../Search/hooks';
+import { useSearchContext } from '../SearchContext';
 import Select from '../Select';
 
 function SearchSelect() {

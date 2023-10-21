@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import useDebounce from '../../hooks/useDebounce';
-import { useSearchContext } from '../Search/hooks';
+import { useSearchContext } from '../SearchContext';
 import { findAll } from '../../API';
 import { INPUT_DELAY } from '../../utils/const';
 

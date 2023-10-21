@@ -1,4 +1,4 @@
-enum SearchSelectTypes {
+export enum SearchSelectTypes {
   name = 'Полное имя',
   alpha = 'Код',
   currency = 'Валюта',
@@ -9,4 +9,4 @@ enum SearchSelectTypes {
   translation = 'Переводы',
 }
 
-export default SearchSelectTypes;
+export type SearchSelectKeys = keyof typeof SearchSelectTypes;

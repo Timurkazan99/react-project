@@ -1,6 +1,9 @@
-import { Country, SearchSelectTypes } from '../../types';
+import { ReactNode } from 'react';
+import { Country, SearchSelectKeys } from '../../types';
 
-export type SearchSelectKeys = keyof typeof SearchSelectTypes;
+export type Props = {
+  children: ReactNode | ReactNode[];
+};
 
 export type Context = {
   search: string;

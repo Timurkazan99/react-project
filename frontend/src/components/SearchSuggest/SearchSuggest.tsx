@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useSearchContext } from '../Search/hooks';
+import { useSearchContext } from '../SearchContext';
 
 function SearchSuggest() {
   const { results } = useSearchContext();
