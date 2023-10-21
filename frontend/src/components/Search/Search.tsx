@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import { useCallback, useRef } from 'react';
 import SearchInput from '../SearchInput';
 import SearchSuggest from '../SearchSuggest';
@@ -8,17 +7,16 @@ import getEnumKeyByString from '../../utils/getEnumKeyByString';
 import SearchSelect from '../SearchSelect';
 import SearchSubmit from '../SearchSubmit';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
+import UseGetSearchParams from '../../hooks/useGetSearchParams';
 
 function Search() {
-  const [searchParams] = useSearchParams();
+  const { type, search } = UseGetSearchParams();
 
   const suggestsRef = useRef<HTMLDivElement>(null);
 
-  const strType = String(searchParams.get('type'));
-  const initType = getEnumKeyByString(SearchSelectTypes, strType);
-  const initStr = searchParams.get('search') ?? '';
+  const initType = getEnumKeyByString(SearchSelectTypes, type);
 
-  const contextValue = useGetContextValue(initType, initStr);
+  const contextValue = useGetContextValue(initType, search);
 
   const suggestClose = useCallback(() => {
     contextValue.setResults([]);

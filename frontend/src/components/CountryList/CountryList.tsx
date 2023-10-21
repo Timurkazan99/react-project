@@ -1,13 +1,11 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
 import CountryItem from '../CountryItem';
 import { useAppSelector } from '../../hooks/redux';
 import { getCountriesPaginat } from '../../store';
+import UseGetSearchParams from '../../hooks/useGetSearchParams';
 
 function CountryList() {
-  const [searchParams] = useSearchParams();
-  const page = Number(searchParams.get('page'));
-  const limit = Number(searchParams.get('limit'));
+  const { page, limit } = UseGetSearchParams();
 
   const items = useAppSelector((state) => getCountriesPaginat(state, page, limit));
 

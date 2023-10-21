@@ -1,11 +1,12 @@
-import { createSearchParams, useNavigate, useSearchParams } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 import { addHistory } from '../../store';
 import { SEARCH } from '../../utils/const';
 import { useAppDispatch } from '../../hooks/redux';
 import { useSearchContext } from '../Search/hooks';
+import UseGetSearchParams from '../../hooks/useGetSearchParams';
 
 function SearchSubmit() {
-  const [searchParams] = useSearchParams();
+  const { limit } = UseGetSearchParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -22,7 +23,7 @@ function SearchSubmit() {
       pathname: SEARCH,
       search: createSearchParams({
         page: '1',
-        limit: String(searchParams.get('limit')),
+        limit: String(limit),
         type,
         search,
       }).toString(),
