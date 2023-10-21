@@ -1,11 +1,6 @@
 import { Country, FullCountry } from '../types/types';
 
-export const getAll = (): Country[] => {
-    return [];
-};
+export const getAll = async (): Promise<Country[]> => [];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getById = (id: string): FullCountry => {
-    
-    return {} as FullCountry;
-}; 
+export const getById = async (id: string): Promise<FullCountry> => ({} as FullCountry);

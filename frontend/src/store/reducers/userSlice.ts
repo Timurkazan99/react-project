@@ -1,21 +1,25 @@
+/* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { User, UserState } from '../../types/types';
+import { UserState } from '../../types';
 
 const initialState: UserState = {
-    user: null
+  login: '',
+  password: '',
 };
 
 export const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {
-        addUser(state, action: PayloadAction<User>) {
-            state.user = action.payload;
-        },
-        deleteUser(state) {
-            state.user = null
-        }
-    }
+  name: 'user',
+  initialState,
+  reducers: {
+    setUser(state, action: PayloadAction<UserState>) {
+      return action.payload;
+    },
+    deleteUser(state) {
+      state.login = '';
+      state.password = '';
+    },
+  },
 });
 
 export default userSlice.reducer;
+export const { setUser, deleteUser } = userSlice.actions;

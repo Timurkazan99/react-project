@@ -1,3 +1,9 @@
+import { PayloadAction } from '@reduxjs/toolkit';
+
+export interface PayloadActionWithError extends PayloadAction {
+  error: string
+}
+
 export interface Image {
   png: string,
   alt: string,
@@ -38,31 +44,18 @@ export interface History {
   timestamp: number
 }
 
-export interface HistoryState {
-  history: History[]
-}
+export type HistoryState = History[];
 
-export interface User {
+export interface UserState {
   login: string
   password: string
 }
 
-export interface UserState {
-  user: User | null
-}
-
 export interface CountryState {
-  country: FullCountry | null,
-  countries: Country[],
+  oneCountry: FullCountry | null,
+  AllCountries: Country[],
   isLoading: boolean,
   error: string,
 }
 
-export interface CountryId {
-  cca3: string
-}
-
-export interface FavoriteState {
-  countryId: CountryId[] 
-}
-
+export type FavoriteState = string[];

@@ -1,11 +1,10 @@
 import { RootState } from '../store';
 
-//выборка любимых стран
-export const getFavoriteCountries = (state: RootState) => {
-    return state.favoriteReducer.countryId;
+// выборка любимых стран
+const getFavoriteCountries = (state: RootState) => {
+  const countries = state.country.AllCountries;
+  const favorites = state.favorite;
+  return favorites.map((e) => countries.find((c) => c.cca3 === e));
 };
 
-// //выборка одной любимой страны
-// export const getOneFavoriteCountry = (state: RootState, cca3: string) => {
-//     return state.favoriteReducer.favorite.find(c => c.cca3 === cca3);
-// };
+export default getFavoriteCountries;

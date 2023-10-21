@@ -7,14 +7,5 @@ export const SIGNUP = '/signup';
 export const FAVORITES = '/favorites';
 export const HISTORY = '/history';
 
-
-
-//Limit pagination
+// Limit pagination
 export const LIMIT = process.env.LIMIT || 20;
-
-
-
-
-
-
-

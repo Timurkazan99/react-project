@@ -1,27 +1,18 @@
-import { AppDispatch } from '../store';
-import { countrySlice } from '../reducers/countrySlice';
-import { getErrorMessage } from '../../utils/helper';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getAll, getById } from '../../API';
 
+export const fetchAllCountry = createAsyncThunk(
+  'country/fetchAll',
+  async () => {
+    const data = await getAll();
+    return data;
+  },
+);
 
-//выборка всех стран
-export const fetchCountry = () => async (dispatch: AppDispatch) => {
-    try {
-        dispatch(countrySlice.actions.countriesFetching());
-        const data = await getAll();
-        dispatch(countrySlice.actions.countriesFetchingSuccess(data));
-    } catch (e) {
-        dispatch(countrySlice.actions.countriesFetchingError(getErrorMessage(e)));
-    }
-};
-
-//выборка одной страны
-export const fetchCountryById = (id: string) => async (dispatch: AppDispatch) => {
-    try {
-        dispatch(countrySlice.actions.countryFetchingById());
-        const data = await getById(id);
-        dispatch(countrySlice.actions.countryFetchingByIdSuccess(data));
-    } catch (e) {
-        dispatch(countrySlice.actions.countryFetchingByIdError(getErrorMessage(e)));
-    }
-};
+export const fetchOneCountry = createAsyncThunk(
+  'country/fetchOne',
+  async (id: string) => {
+    const data = await getById(id);
+    return data;
+  },
+);

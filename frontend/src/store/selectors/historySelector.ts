@@ -1,7 +1,6 @@
 import { RootState } from '../store';
 
-//получить массив истории
-export const getAllHistory = (state: RootState) => {
-    return state.historyReducer.history;
-};
+// получить массив истории
+const getAllHistory = (state: RootState) => state.history;
 
+export default getAllHistory;

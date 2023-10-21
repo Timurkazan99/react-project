@@ -1,6 +1,6 @@
 import { RootState } from '../store';
 
-//Получить юзера
-export const getUser = (state: RootState) => {
-    return state.userReducer.user;
-};
+// Получить юзера
+const getUser = (state: RootState) => state.user;
+
+export default getUser;
