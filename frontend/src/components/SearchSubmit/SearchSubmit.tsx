@@ -7,6 +7,7 @@ import { useSearchContext } from '../SearchContext';
 import UseGetSearchParams from '../../hooks/useGetSearchParams';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { Props } from './type';
+import useGetAuth from '../../hooks/useGetAuth';
 
 function SearchSubmit(props: Props) {
   const { searchRef } = props;
@@ -24,11 +25,13 @@ function SearchSubmit(props: Props) {
   useOnClickOutside(searchRef, suggestClose);
 
   const submitHandler = () => {
-    dispatch(addHistory({
-      type,
-      search,
-      timestamp: Date.now(),
-    }));
+    if (auth) {
+      dispatch(addHistory({
+        type,
+        search,
+        timestamp: Date.now(),
+      }));
+    }
 
     navigate({
       pathname: SEARCH,
