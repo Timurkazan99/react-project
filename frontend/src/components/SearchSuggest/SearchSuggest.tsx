@@ -1,8 +1,18 @@
 import { Link } from 'react-router-dom';
 import { useSearchContext } from '../SearchContext';
+import {useCallback} from 'react';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
+import {Props} from './type';
 
-function SearchSuggest() {
-  const { results } = useSearchContext();
+function SearchSuggest(props: Props) {
+  const { searchRef } = props;
+  const { results, setResults } = useSearchContext();
+
+  const suggestClose = useCallback(() => {
+    setResults([]);
+  }, [setResults]);
+
+  useOnClickOutside(searchRef, suggestClose);
 
   if (results.length === 0) {
     return null;

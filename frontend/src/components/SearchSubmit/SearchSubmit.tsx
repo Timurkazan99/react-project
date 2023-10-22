@@ -1,28 +1,18 @@
 import { createSearchParams, useNavigate } from 'react-router-dom';
-import { useCallback } from 'react';
 import { addHistory } from '../../store';
 import { SEARCH } from '../../utils/const';
 import { useAppDispatch } from '../../hooks/redux';
 import { useSearchContext } from '../SearchContext';
 import UseGetSearchParams from '../../hooks/useGetSearchParams';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
-import { Props } from './type';
 import useGetAuth from '../../hooks/useGetAuth';
 
-function SearchSubmit(props: Props) {
-  const { searchRef } = props;
+function SearchSubmit() {
   const { limit } = UseGetSearchParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const { search, type, setResults } = useSearchContext();
+  const { search, type } = useSearchContext();
   const auth = useGetAuth();
-
-  const suggestClose = useCallback(() => {
-    setResults([]);
-  }, [setResults]);
-
-  useOnClickOutside(searchRef, suggestClose);
 
   const submitHandler = () => {
     if (auth) {

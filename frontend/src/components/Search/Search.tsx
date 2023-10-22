@@ -14,9 +14,9 @@ function Search() {
         <div className="search__group">
           <SearchSelect />
           <SearchInput />
-          <SearchSubmit searchRef={searchRef} />
+          <SearchSubmit />
         </div>
-        <SearchSuggest />
+        <SearchSuggest searchRef={searchRef} />
       </SearchContext>
     </div>
   );
