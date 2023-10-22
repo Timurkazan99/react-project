@@ -2,7 +2,8 @@ import {
   Country,
   FullCountry
 } from '../../types'
-    
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const transformCountry = (country: any): Country  => {
   return {
     ...country,
@@ -17,6 +18,7 @@ export const transformCountry = (country: any): Country  => {
   } as Country;
   };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const transformFullCountry = (fullCountry: any): FullCountry => {
   return {
     ...fullCountry,
