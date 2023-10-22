@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import NavLinks from './NavLinks';
 import NavAuth from './NavAuth';
 import './navstyle.scss';
@@ -7,9 +7,9 @@ function NavBar() {
   return (
     <div className="Nav__container">
       <div className="Nav__container_logo">
-        <NavLink className="Nav__logo" to="/">
+        <Link className="Nav__logo" to="/">
           LOGOTYPE
-        </NavLink>
+        </Link>
       </div>
       <div className="Nav__container__body">
         <div className="Nav__body_left">

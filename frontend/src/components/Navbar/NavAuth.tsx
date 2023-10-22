@@ -1,8 +1,10 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import {
   getUser, setFavoriteCountry, setHistory, setUser,
 } from '../../store';
+import IconExit from '../Icons/IconExit';
+import IconPerson from '../Icons/IconPerson';
 
 function NavAuth() {
   const user = useAppSelector(getUser);
@@ -20,17 +22,27 @@ function NavAuth() {
       {!user.login
         ? (
           <>
-            <NavLink className="Nav__navlink" to="/signin">
+            <Link className="Nav__navlink" to="/signin">
               signIn
-            </NavLink>
+            </Link>
             <div className="Nav__divider">/</div>
-            <NavLink className="Nav__navlink" to="/signup">
+            <Link className="Nav__navlink" to="/signup">
               signUp
-            </NavLink>
+            </Link>
           </>
         )
         : (
-          <button type="button" onClick={handleClick}>выйти</button>
+          <>
+            <span className="Nav__span_login">
+              {`${user.login} master`}
+            </span>
+            <span className="Nav__span_person">
+              <IconPerson />
+            </span>
+            <button type="button" className="Nav__button_exit" onClick={handleClick}>
+              <IconExit />
+            </button>
+          </>
         )}
     </>
   );

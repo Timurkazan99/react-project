@@ -1,6 +1,4 @@
-
 .Nav__container {
-
     display: flex;
     position: fixed;
     align-items: center;
@@ -10,7 +8,7 @@
 }
 
 .Nav__container_logo {
-    display: flex; 
+    display: flex;
     vertical-align: middle;
     height: 100%;
     width: 200px;
@@ -33,7 +31,7 @@
 .Nav__body_right {
     display: flex;
     height: 100%;
-    padding-right: 20px;
+    padding-right: 25px;
 }
 
 .Nav__navlink {
@@ -44,11 +42,12 @@
     padding: 10px;
     color: rgb(255, 255, 255);
     text-decoration: none;
-    transition: color 0.2s;
+    border-bottom: 4px solid transparent;
+    transition: background-color 0.2s;
 }
 
-.Nav__navlink:hover {
-    color: rgb(255, 105, 63);
+.Nav__navlink:active {
+background-color: rgba(210, 210, 210, 0.577);
 }
 
 .Nav__logo {
@@ -73,4 +72,41 @@
     padding-top: 5px;
     align-items: center;
     color: white;
+}
+
+.Nav__button_exit  {
+    border: none;
+    width: 50px;
+    color: rgb(255, 105, 63);
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.2s;
+}
+
+.Nav__button_exit:hover {
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.Nav__span_person {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2px;
+    background-color: rgba(255, 255, 255, 0);
+    width: 50px;
+    color: white;
+}
+
+.Nav__span_login {
+ display: flex;
+ padding-top: 15px;
+ margin-right: 17px;
+ font-size: 20px;
+ color: white;
+ padding-right: 10px;
+}
+
+.active {
+    border-bottom: 4px solid  rgb(255, 105, 63);
 }
