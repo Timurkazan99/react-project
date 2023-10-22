@@ -17,7 +17,7 @@ function NavAuth() {
     navigate('/');
   };
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
+  // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {!user.login
         ? (
@@ -25,7 +25,6 @@ function NavAuth() {
             <Link className="Nav__navlink" to="/signin">
               signIn
             </Link>
-            <div className="Nav__divider">/</div>
             <Link className="Nav__navlink" to="/signup">
               signUp
             </Link>
@@ -34,7 +33,7 @@ function NavAuth() {
         : (
           <>
             <span className="Nav__span_login">
-              {`${user.login} master`}
+              {user.login}
             </span>
             <span className="Nav__span_person">
               <IconPerson />
