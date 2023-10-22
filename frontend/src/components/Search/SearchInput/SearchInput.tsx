@@ -9,16 +9,22 @@ function SearchInput() {
     search, type, setSearch, setResults,
   } = useSearchContext();
 
-  const getResults = useDebounce(async () => {
-    const data = await getSearchedCountries(type, search);
-    setResults(data.slice(0, 4));
+  const getResults = useDebounce(async (bindSearch) => {
+    if(bindSearch) {
+      try {
+        const data = await getSearchedCountries(type, bindSearch);
+        setResults(data.slice(0, 4));
+      } catch (e) {
+        setResults([]);
+      }
+    }
   }, INPUT_DELAY);
 
   const inputHandler = async (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setResults([]);
     setSearch(value);
-    getResults();
+    getResults(value);
   };
 
   return (

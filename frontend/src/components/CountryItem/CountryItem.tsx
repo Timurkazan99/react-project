@@ -17,7 +17,7 @@ function CountryItem(props: Props) {
           {name.common}
         </li>
         <li>
-          {`${capital[0]}` || 'Without capital'}
+          {capital?.[0] || 'Without capital'}
         </li>
         <li>
           {population}
