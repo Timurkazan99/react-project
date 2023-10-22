@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react';
 import useDebounce from '../../../hooks/useDebounce';
 import { useSearchContext } from '../SearchContext';
-import { findAll } from '../../../API';
+import { getSearchedCountries } from '../../../API';
 import { INPUT_DELAY } from '../../../utils/const';
 
 function SearchInput() {
@@ -10,7 +10,7 @@ function SearchInput() {
   } = useSearchContext();
 
   const getResults = useDebounce(async () => {
-    const data = await findAll(type, search);
+    const data = await getSearchedCountries(type, search);
     setResults(data.slice(0, 4));
   }, INPUT_DELAY);
 
