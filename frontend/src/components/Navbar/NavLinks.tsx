@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 function NavLinks() {
   return (
     <>
-      <NavLink className="Nav__navlink_left" to="/history">
+      <NavLink className="Nav__navlink" to="/history">
         history
       </NavLink>
-      <NavLink className="Nav__navlink_left" to="/favorites">
+      <NavLink className="Nav__navlink" to="/favorites">
         favorites
       </NavLink>
     </>

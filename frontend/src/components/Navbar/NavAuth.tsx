@@ -1,25 +1,33 @@
 import { NavLink } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/redux';
-import { getUser } from '../../store';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import {
+  getUser, setFavoriteCountry, setHistory, setUser,
+} from '../../store';
 
 function NavAuth() {
   const user = useAppSelector(getUser);
+  const dispatch = useAppDispatch();
+  const handleClick = () => {
+    dispatch(setFavoriteCountry([]));
+    dispatch(setHistory([]));
+    dispatch(setUser({ login: '', password: '' }));
+  };
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {!user.login
+      {user.login
         ? (
           <>
-            <NavLink to="/signin">
+            <NavLink className="Nav__link_auth" to="/signin">
               signIn
             </NavLink>
-            <NavLink to="/signup">
+            <NavLink className="Nav__link_auth" to="/signup">
               signUp
             </NavLink>
           </>
         )
         : (
-          <button type="button">выйти</button>
+          <button type="button" onClick={handleClick}>выйти</button>
         )}
     </>
   );
