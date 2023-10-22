@@ -1,7 +1,7 @@
 // countryReducer
 import getAllHistory from './selectors/historySelector';
 import getFavoriteCountries from './selectors/favoriteSelector';
-import getUser from './selectors/userSelector';
+import { getUser, getIsAuth } from './selectors/userSelector';
 
 export { fetchAllCountry, fetchOneCountry } from './thunks/country';
 export {
@@ -18,7 +18,7 @@ export { getFavoriteCountries };
 
 // userReducer
 export { deleteUser, setUser } from './reducers/userSlice';
-export { getUser };
+export { getUser, getIsAuth };
 
 // redux
 export { useAppDispatch, useAppSelector } from './hooks/redux';
