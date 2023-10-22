@@ -1,7 +1,7 @@
 import React from 'react';
-import getEnumKeyByString from '../../utils/getEnumKeyByString';
-import { SearchSelectTypes } from '../../types';
-import UseGetSearchParams from '../../hooks/useGetSearchParams';
+import getEnumKeyByString from '../../../utils/getEnumKeyByString';
+import { SearchSelectTypes } from '../../../types';
+import UseGetSearchParams from '../../../hooks/useGetSearchParams';
 import { useGetContextValue, SearchContext as Context } from './hooks';
 import { Props } from './type';
 

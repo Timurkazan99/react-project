@@ -1,9 +1,10 @@
 import { useRef } from 'react';
-import SearchInput from '../SearchInput';
-import SearchSuggest from '../SearchSuggest';
-import SearchSelect from '../SearchSelect';
-import SearchSubmit from '../SearchSubmit';
-import SearchContext from '../SearchContext';
+import SearchInput from './SearchInput';
+import SearchSuggest from './SearchSuggest';
+import SearchSelect from './SearchSelect';
+import SearchSubmit from './SearchSubmit';
+import SearchContext from './SearchContext';
+import './Search.sass';
 
 function Search() {
   const searchRef = useRef<HTMLDivElement>(null);

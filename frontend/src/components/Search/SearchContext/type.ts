@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Country, SearchSelectKeys } from '../../types';
+import { Country, SearchSelectKeys } from '../../../types';
 
 export type Props = {
   children: ReactNode | ReactNode[];

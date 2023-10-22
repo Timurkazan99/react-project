@@ -1,10 +1,10 @@
 import { createSearchParams, useNavigate } from 'react-router-dom';
-import { addHistory } from '../../store';
-import { SEARCH } from '../../utils/const';
-import { useAppDispatch } from '../../hooks/redux';
+import { addHistory } from '../../../store';
+import { SEARCH } from '../../../utils/const';
+import { useAppDispatch } from '../../../hooks/redux';
 import { useSearchContext } from '../SearchContext';
-import UseGetSearchParams from '../../hooks/useGetSearchParams';
-import useGetAuth from '../../hooks/useGetAuth';
+import UseGetSearchParams from '../../../hooks/useGetSearchParams';
+import useGetAuth from '../../../hooks/useGetAuth';
 
 function SearchSubmit() {
   const { limit } = UseGetSearchParams();
@@ -40,7 +40,7 @@ function SearchSubmit() {
       className="search__submit"
       onClick={submitHandler}
     >
-      Найти
+      Find
     </button>
   );
 }

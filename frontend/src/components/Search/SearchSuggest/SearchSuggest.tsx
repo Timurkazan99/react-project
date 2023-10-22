@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useCallback } from 'react';
 import { useSearchContext } from '../SearchContext';
-import {useCallback} from 'react';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
-import {Props} from './type';
+import useOnClickOutside from '../../../hooks/useOnClickOutside';
+import { Props } from './type';
 
 function SearchSuggest(props: Props) {
   const { searchRef } = props;

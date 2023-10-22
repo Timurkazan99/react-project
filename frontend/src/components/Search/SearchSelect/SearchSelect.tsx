@@ -1,11 +1,11 @@
 import {
   useCallback,
 } from 'react';
-import getEnumKeys from '../../utils/getEnumKeys';
-import { SearchSelectTypes } from '../../types';
-import Option from '../Option';
+import getEnumKeys from '../../../utils/getEnumKeys';
+import { SearchSelectTypes } from '../../../types';
+import Option from '../../Option';
 import { useSearchContext } from '../SearchContext';
-import Select from '../Select';
+import Select from '../../Select';
 
 function SearchSelect() {
   const { type, setType } = useSearchContext();
