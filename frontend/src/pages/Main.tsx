@@ -5,7 +5,7 @@ import WithPagination from '../hoc/WithPagination';
 
 function Main() {
   return (
-    <div>
+    <div className="main__container">
       <Search />
       <CountryList />
       <PageList />

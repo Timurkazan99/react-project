@@ -3,6 +3,7 @@ import CountryItem from '../CountryItem';
 import { useAppSelector } from '../../hooks/redux';
 import { getCountriesPaginat } from '../../store';
 import UseGetSearchParams from '../../hooks/useGetSearchParams';
+import './CountryList.sass';
 
 function CountryList() {
   const { page, limit } = UseGetSearchParams();

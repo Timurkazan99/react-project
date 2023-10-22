@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { Props } from './type';
+import './CountryItem.sass';
 
 function CountryItem(props: Props) {
   const {
