@@ -1,5 +1,5 @@
 import {
-  createContext, useCallback, useContext, useMemo, useState,
+  createContext, useContext, useMemo, useState,
 } from 'react';
 import { Context } from './type';
 import getEnumKeyByString from '../../utils/getEnumKeyByString';
@@ -29,21 +29,19 @@ const useGetContextValue = (initType: SearchSelectKeys, initStr: string) => {
   const [search, setSearch] = useState<string>(initStr);
   const [type, setType] = useState<SearchSelectKeys>(initType);
 
-  const memoSetResult = useCallback(setResults, []);
-  const memoSetSearch = useCallback(setSearch, []);
-  const memoSetType = useCallback((str: string) => {
+  const setTypeWithCasting = (str: string) => {
     const newValue = getEnumKeyByString(SearchSelectTypes, str);
     setType(newValue);
-  }, []);
+  };
 
   return useMemo(() => ({
-    search,
-    setSearch: memoSetSearch,
-    type,
-    setType: memoSetType,
     results,
-    setResults: memoSetResult,
-  }), [search, type, results]);
+    setResults,
+    search,
+    setSearch,
+    type,
+    setType: setTypeWithCasting,
+  }), [results, search, type]);
 };
 
 export { useSearchContext, SearchContext, useGetContextValue };

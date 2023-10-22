@@ -15,7 +15,7 @@ function SearchSelect() {
     <Option key={key} value={key}>{SearchSelectTypes[key]}</Option>
   ));
 
-  const clickHandler = useCallback(setType, []);
+  const clickHandler = useCallback(setType, [setType]);
 
   return (
     <Select onChange={clickHandler} title={SearchSelectTypes[type]}>

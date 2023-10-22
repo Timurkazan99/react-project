@@ -20,7 +20,7 @@ function SearchSubmit(props: Props) {
 
   const suggestClose = useCallback(() => {
     setResults([]);
-  }, []);
+  }, [setResults]);
 
   useOnClickOutside(searchRef, suggestClose);
 
