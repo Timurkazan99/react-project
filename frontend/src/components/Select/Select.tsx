@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 import { Props } from './type';
-import './Select.sass';
+import './Select.scss';
 
 function Select(props: Props) {
   const { children, title, onChange } = props;
