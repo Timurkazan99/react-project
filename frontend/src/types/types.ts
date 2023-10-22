@@ -16,7 +16,6 @@ export interface Country {
     official: string
   },
   flags: Image,
-  coatOfArms: Image,
   capital: string[],
   population: number
 }
@@ -35,7 +34,8 @@ export interface FullCountry extends Country {
     [key: string]: string
   },
   region: string,
-  subregion: string
+  subregion: string,
+  coatOfArms: Image,
 }
 
 export interface History {
