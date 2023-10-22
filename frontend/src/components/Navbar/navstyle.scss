@@ -66,3 +66,11 @@
 .Nav__logo:hover {
     opacity: 0.8;
 }
+
+.Nav__divider {
+    display: flex;
+    font-size: 22px;
+    padding-top: 5px;
+    align-items: center;
+    color: white;
+}
