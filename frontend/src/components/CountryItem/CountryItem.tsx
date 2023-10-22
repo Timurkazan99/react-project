@@ -17,14 +17,14 @@ function CountryItem(props: Props) {
           {name.common}
         </li>
         <li>
-          {`г. ${capital[0]}` || 'Нету столицы'}
+          {`${capital[0]}` || 'Without capital'}
         </li>
         <li>
           {population}
           🧍
         </li>
       </ul>
-      <Link className="countries__item__link" to={`/${cca3}`}>Подробнее</Link>
+      <Link className="countries__item__link" to={`/${cca3}`}>Learn more</Link>
     </div>
   );
 }
