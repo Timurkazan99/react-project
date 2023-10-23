@@ -1,0 +1,31 @@
+.select__button:hover {
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.select__options {
+  box-sizing: border-box;
+  position: absolute;
+  margin: -1px 0 0 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #000;
+  width: 100%;
+  background: #fff;
+
+  li {
+    white-space: nowrap;
+    padding: 1px 6px;
+
+    &:nth-child(even) {
+      background: lightgrey;
+    }
+
+    &:hover {
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
