@@ -1,6 +1,7 @@
 import HistoryItem from '../HistoryItem';
 import { useAppSelector } from '../../hooks/redux';
 import getAllHistory from '../../store/selectors/historySelector';
+import './HistoryList.scss';
 
 function HistoryList() {
   const history = useAppSelector(getAllHistory);
