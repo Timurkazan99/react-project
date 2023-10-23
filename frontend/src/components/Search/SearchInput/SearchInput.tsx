@@ -10,7 +10,7 @@ function SearchInput() {
   } = useSearchContext();
 
   const getResults = useDebounce(async (bindSearch) => {
-    if(bindSearch) {
+    if (bindSearch) {
       try {
         const data = await getSearchedCountries(type, bindSearch);
         setResults(data.slice(0, 4));
