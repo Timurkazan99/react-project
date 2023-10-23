@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import NavBar from '../Navbar';
-import AppRouter from '../AppRouter/AppRouter';
+import AppRouter from '../AppRouter';
 import '../../styles/style.scss';
-import { useAppDispatch } from '../../hooks/redux';
-import { fetchAllCountry } from '../../store';
+import { fetchAllCountry, useAppDispatch } from '../../store';
 
 function App() {
   const dispatch = useAppDispatch();

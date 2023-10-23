@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 import useDebounce from '../../../hooks/useDebounce';
 import { useSearchContext } from '../SearchContext';
 import { getSearchedCountries } from '../../../API';
-import { INPUT_DELAY } from '../../../utils/const';
+import { INPUT_DELAY } from '../../../utils';
 
 function SearchInput() {
   const {

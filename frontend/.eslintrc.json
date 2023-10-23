@@ -39,5 +39,19 @@
             "error",
             "always"
         ]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["src/hoc/*.tsx"],
+            "rules": {
+                "react/jsx-props-no-spreading": "off"
+            }
+        },
+        {
+            "files": ["index.ts"],
+            "rules": {
+                "no-restricted-exports": "off"
+            }
+        }
+    ]
 }
