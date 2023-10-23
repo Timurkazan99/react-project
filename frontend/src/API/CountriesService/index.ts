@@ -1,9 +1,9 @@
 import {
   transformCountry,
-  transformFullCountry
-} from './CountriesService'
+  transformFullCountry,
+} from './CountriesService';
 
 export {
   transformCountry,
-  transformFullCountry
-}
+  transformFullCountry,
+};
