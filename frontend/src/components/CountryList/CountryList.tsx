@@ -1,7 +1,6 @@
 import React from 'react';
 import CountryItem from '../CountryItem';
-import { useAppSelector } from '../../hooks/redux';
-import { getCountriesPaginat } from '../../store';
+import { getCountriesPaginat, useAppSelector } from '../../store';
 import UseGetSearchParams from '../../hooks/useGetSearchParams';
 import './CountryList.scss';
 

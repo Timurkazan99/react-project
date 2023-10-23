@@ -14,7 +14,7 @@ import {
   ID,
   FAVORITES,
   HISTORY,
-} from './utils/const';
+} from './utils';
 
 // eslint-disable-next-line import/prefer-default-export
 export const routes = [

@@ -1,6 +1,6 @@
 import { Attributes, ComponentType, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { LIMIT } from '../utils/const';
+import { LIMIT } from '../utils';
 
 function WithPagination <T extends Attributes>(
   WrappedComponent: ComponentType<T>,
@@ -23,7 +23,6 @@ function WithPagination <T extends Attributes>(
     }, []);
 
     return (
-      // eslint-disable-next-line react/jsx-props-no-spreading
       <WrappedComponent {...(props as T)} />
     );
   }

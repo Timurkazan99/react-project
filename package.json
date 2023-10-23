@@ -1,7 +1,8 @@
 {
     "scripts": {
         "build": "npm run build --prefix frontend",
-        "linter": "npm run linter --prefix frontend"
+        "linter": "npm run linter --prefix frontend",
+        "linter:check": "npm run linter:check --prefix frontend"
     },
     "workspaces": [
         "frontend"

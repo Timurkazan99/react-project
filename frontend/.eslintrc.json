@@ -27,10 +27,7 @@
             "error",
             2
         ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
+        "linebreak-style": "off",
         "quotes": [
             "error",
             "single"
@@ -39,5 +36,19 @@
             "error",
             "always"
         ]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["src/hoc/*.tsx"],
+            "rules": {
+                "react/jsx-props-no-spreading": "off"
+            }
+        },
+        {
+            "files": ["index.ts"],
+            "rules": {
+                "no-restricted-exports": "off"
+            }
+        }
+    ]
 }

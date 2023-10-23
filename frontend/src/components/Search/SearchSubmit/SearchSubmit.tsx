@@ -1,7 +1,6 @@
 import { createSearchParams, useNavigate } from 'react-router-dom';
-import { addHistory } from '../../../store';
-import { SEARCH } from '../../../utils/const';
-import { useAppDispatch } from '../../../hooks/redux';
+import { addHistory, useAppDispatch } from '../../../store';
+import { SEARCH } from '../../../utils';
 import { useSearchContext } from '../SearchContext';
 import UseGetSearchParams from '../../../hooks/useGetSearchParams';
 import useGetAuth from '../../../hooks/useGetAuth';
