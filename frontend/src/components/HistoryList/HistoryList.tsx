@@ -17,9 +17,9 @@ function HistoryList() {
   return (
     <div className="history__container">
       <div>
-        <span>Критерий</span>
-        <span>Запрос</span>
-        <span>Время</span>
+        <span>Type</span>
+        <span>Search</span>
+        <span>Time</span>
       </div>
       {items}
     </div>

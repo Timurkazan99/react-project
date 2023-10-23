@@ -2,10 +2,13 @@ import { Link, createSearchParams } from 'react-router-dom';
 import { memo } from 'react';
 import { Props } from './type';
 import { LIMIT, SEARCH } from '../../utils/const';
+import getEnumKeyByString from '../../utils/getEnumKeyByString';
+import { SearchSelectTypes } from '../../types';
 
 function HistoryItem(props: Props) {
   const { type, search, timestamp } = props;
   const date = new Date(timestamp * 1000).toLocaleString('ru-RU');
+  const key = getEnumKeyByString(SearchSelectTypes, type);
 
   return (
     <Link
@@ -20,7 +23,7 @@ function HistoryItem(props: Props) {
       }}
       className="history__item"
     >
-      <span>{type}</span>
+      <span>{SearchSelectTypes[key]}</span>
       <span>{search}</span>
       <span>{date}</span>
     </Link>
