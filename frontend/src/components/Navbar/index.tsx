@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import NavLinks from './NavLinks';
 import NavAuth from './NavAuth';
-import './navstyle.scss';
+import './Navbar.scss';
 
 function NavBar() {
   return (
