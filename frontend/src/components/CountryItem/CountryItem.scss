@@ -1,0 +1,29 @@
+.countries__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 calc((100% / 5) - 20px);
+  width: 224px;
+  height: 310px;
+  border: 1px solid #000;
+  background: lightgrey;
+
+  h5 {
+    height: 32px;
+    text-align: center;
+  }
+
+  .countries__item__flag {
+    display: block;
+  }
+
+  ul {
+    padding: 0;
+    margin-left: 32px;
+    align-self: start;
+
+    li {
+      list-style: none;
+    }
+  }
+}

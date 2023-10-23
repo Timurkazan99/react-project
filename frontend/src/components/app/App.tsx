@@ -1,14 +1,24 @@
+import { useEffect } from 'react';
 import NavBar from '../Navbar';
 import AppRouter from '../AppRouter/AppRouter';
+import '../../styles/style.scss';
+import { useAppDispatch } from '../../hooks/redux';
+import { fetchAllCountry } from '../../store';
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllCountry());
+  }, []);
+
   return (
-    <div className="app__container">
+    <>
       <NavBar />
-      <div className="app__body_container">
+      <div className="container">
         <AppRouter />
       </div>
-    </div>
+    </>
   );
 }
 
