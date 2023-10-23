@@ -1,0 +1,116 @@
+.Nav__container {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    background-color: rgb(34, 34, 42);
+    width: 100vw;
+    height: 50px;
+}
+
+.Nav__container_logo {
+    display: flex;
+    vertical-align: middle;
+    height: 100%;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.Nav__container__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.Nav__body_left {
+    display: flex;
+    height: 100%;
+}
+
+.Nav__body_right {
+    display: flex;
+    height: 100%;
+    padding-right: 25px;
+}
+
+.Nav__navlink {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+    transition: background-color 0.2s;
+}
+
+.Nav__navlink:hover {
+   color: #d4d4d4;
+}
+
+.Nav__navlink:active {
+background-color: rgba(210, 210, 210, 0.577);
+}
+
+.Nav__logo {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.Nav__logo:hover {
+    opacity: 0.8;
+}
+
+.Nav__divider {
+    display: flex;
+    font-size: 22px;
+    padding-top: 5px;
+    align-items: center;
+    color: white;
+}
+
+.Nav__button_exit  {
+    border: none;
+    width: 50px;
+    color: rgb(255, 105, 63);
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.2s;
+}
+
+.Nav__button_exit:hover {
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+.Nav__span_person {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2px;
+    background-color: rgba(255, 255, 255, 0);
+    width: 50px;
+    color: white;
+}
+
+.Nav__span_login {
+ display: flex;
+ padding-top: 15px;
+ margin-right: 17px;
+ font-size: 20px;
+ color: white;
+ padding-right: 10px;
+}
+
+.active {
+    border-bottom: 4px solid  rgb(255, 105, 63);
+}

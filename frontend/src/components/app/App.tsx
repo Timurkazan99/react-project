@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import NavBar from '../Navbar/Navbar';
+import NavBar from '../Navbar';
 import AppRouter from '../AppRouter/AppRouter';
 import '../../styles/style.scss';
 import { useAppDispatch } from '../../hooks/redux';
