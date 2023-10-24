@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import './Input.scss';
 
 interface Props {
   error: string
@@ -11,6 +12,7 @@ function Input(props: Props) {
   const {
     error, placeholder, value, onClick,
   } = props;
+  const style = error ? 'Input__item_error' : 'Input__item';
   return (
     <div className="Input__container">
       <input
@@ -18,9 +20,9 @@ function Input(props: Props) {
         onChange={onClick}
         type="text"
         placeholder={placeholder}
-        className="Input__item"
+        className={style}
       />
-      {error && <span className="Input__error">{error}</span>}
+      {error && <span className="Input__message_err">{error}</span>}
     </div>
 
   );
