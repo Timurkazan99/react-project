@@ -1,21 +1,29 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Input from '../Input';
+import { validateLogin, validatePasswordWhitRepeat } from '../../utils/validate';
 
 function SignupForm() {
-  const [loginErr, setLoginErr] = useState('kjhk');
+  const [loginErr, setLoginErr] = useState('');
   const [loginValue, setLoginValue] = useState('');
-  const [passErr, SetPassErr] = useState('');
+  const [passErr, setPassErr] = useState('');
   const [repeatPass, setRepeatPass] = useState('');
   const [passValue, setPassValue] = useState('');
+  const [repeatErr, setRepeatErr] = useState('');
   const handleSubmit = () => {
-    setLoginErr('das');
-    SetPassErr('dasd');
+    const isValidLogin = validateLogin({ loginValue, setLoginErr });
+    const isValidPass = validatePasswordWhitRepeat({
+      passValue,
+      setPassErr,
+      repeatPass,
+      setRepeatErr,
+    });
+    if (!isValidLogin || !isValidPass) {
+      return null;
+    }
+    return null;
   };
   return (
     <div className="signup__form">
-      <div className="signup__title">
-        registration
-      </div>
       <Input
         error={loginErr}
         value={loginValue}
@@ -31,12 +39,18 @@ function SignupForm() {
       />
       <Input
         password
-        error={passErr}
+        error={repeatErr}
         value={repeatPass}
         placeholder="repeat password"
         onClick={({ target }) => setRepeatPass(target.value)}
       />
-      <button onClick={handleSubmit} type="button">SignUp</button>
+      <button
+        className="signup__formbutton_submit"
+        onClick={handleSubmit}
+        type="button"
+      >
+        SignUp
+      </button>
     </div>
 
   );

@@ -15,9 +15,9 @@ function Input(props: Props) {
   const {
     error, placeholder, value, onClick, password,
   } = props;
-  const [isPassword, setIsPassword] = useState(false);
+  const [isPassword, setIsPassword] = useState(true);
   const style = error ? 'Input__item_error' : 'Input__item';
-  const icon = isPassword ? <IconEyeClosed /> : <IconEye />;
+  const icon = isPassword ? <IconEye /> : <IconEyeClosed />;
   const type = isPassword ? 'password' : 'text';
   function togglePass() {
     setIsPassword(!isPassword);
@@ -26,6 +26,7 @@ function Input(props: Props) {
     <div className="Input__container">
       { password && (
         <button
+          className="input__container_button"
           type="button"
           onClick={togglePass}
         >

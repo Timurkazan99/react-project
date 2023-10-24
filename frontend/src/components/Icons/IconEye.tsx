@@ -1,6 +1,3 @@
-// icon:eye-24 | Octicons https://primer.style/octicons/ | Github Primer
-import * as React from 'react';
-
 function IconEye() {
   return (
     <svg

@@ -11,7 +11,6 @@ function SignUp() {
     <>
       <button type="button" className="signup__button" onClick={handleClick}>SignUp</button>
       <Modal setActive={setActive} active={active}>
-        <button onClick={() => setActive(false)} type="button">close</button>
         <SignupForm />
       </Modal>
     </>

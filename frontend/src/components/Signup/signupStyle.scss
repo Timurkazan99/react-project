@@ -13,3 +13,24 @@
 .signup__button:active {
   background-color: rgba(210, 210, 210, 0.577);;
 }
+
+.signup__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup__formbutton_submit {
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  width: 320px;
+  color: #ffffff;
+  background-color: #176cff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.signup__fombutton_submit:active {
+  background-color: #357fff;
+} 

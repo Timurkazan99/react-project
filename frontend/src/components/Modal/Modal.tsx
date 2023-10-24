@@ -18,6 +18,14 @@ function Modal({ active, children, setActive } : Props) {
   return (createPortal(
     <div className="modal__container">
       <div className="modal__content">
+        <button
+          className="modal__button_close"
+          onClick={() => setActive(false)}
+          type="button"
+        >
+          &#10006;
+
+        </button>
         {children}
       </div>
     </div>,

@@ -1,6 +1,3 @@
-// icon:eye-closed-24 | Octicons https://primer.style/octicons/ | Github Primer
-import * as React from 'react';
-
 function IconEyeClosed() {
   return (
     <svg
