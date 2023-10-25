@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as jose from 'jose';
 import Input from '../Input';
 import { validateLogin, validatePasswordWhitRepeat } from '../../utils/validate';
 
@@ -20,6 +21,25 @@ function SignupForm() {
     if (!isValidLogin || !isValidPass) {
       return null;
     }
+    const login = localStorage.getItem(loginValue);
+    if (login) {
+      return null; // такой уже есть!
+    }
+    async function auth() {
+      const secret = new TextEncoder().encode(
+        'mama',
+      );
+      console.log(typeof secret);
+      const alg = 'HS256';
+      const jwt = await new jose.SignJWT({ stas: 'tovch' })
+        .setProtectedHeader({ alg })
+        .setExpirationTime('2h')
+        .sign(secret);
+      console.log(jwt);
+      const claims = jose.decodeJwt(jwt);
+      console.log(claims);
+    }
+    auth();
     return null;
   };
   return (

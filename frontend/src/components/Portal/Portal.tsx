@@ -11,7 +11,6 @@ function Portal({ children, setActive }: Prop) {
   const element = children;
   useEffect(() => {
     function ch() {
-      console.log('yyyy');
       setActive(false);
     }
     document.addEventListener('popstate', ch);

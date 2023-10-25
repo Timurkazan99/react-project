@@ -1,14 +1,16 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import './modalStyle.scss';
 import { createPortal } from 'react-dom';
+import { useLocation } from 'react-router-dom';
 
 interface Props {
   setActive: React.Dispatch<React.SetStateAction<boolean>>
   children: ReactNode
   active: boolean
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Modal({ active, children, setActive } : Props) {
+  const { pathname } = useLocation();
+  useEffect(() => setActive(false), [pathname]);
   const portal = document.getElementById('portal');
 
   if (!active || !portal) {
@@ -24,7 +26,6 @@ function Modal({ active, children, setActive } : Props) {
           type="button"
         >
           &#10006;
-
         </button>
         {children}
       </div>
