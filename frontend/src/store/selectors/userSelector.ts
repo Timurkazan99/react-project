@@ -1,6 +1,5 @@
 import { RootState } from '../store';
 
 // Получить юзера
-const getUser = (state: RootState) => state.user;
-
-export default getUser;
+export const getUser = (state: RootState) => state.user;
+export const getIsAuth = (state: RootState) => Boolean(state.user.login);

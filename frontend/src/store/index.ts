@@ -1,44 +1,31 @@
-import { useAppDispatch, useAppSelector } from './hooks/redux';
-import { addFavoriteCountry, setFavoriteCountry } from './reducers/favoriteSlice';
-import { setHistory, addHistory } from './reducers/historySlice';
-import { deleteUser } from './reducers/userSlice';
-import {
+/* eslint-disable */
+// countryReducer
+export { fetchAllCountry, fetchOneCountry } from './thunks/country';
+export {
   getAllCoutries, getCountriesPaginat, getOneCountry, getMaxPage,
 } from './selectors/countrySelector';
-import getFavoriteCountries from './selectors/favoriteSelector';
-import getAllHistory from './selectors/historySelector';
-import getUser from './selectors/userSelector';
-import type { RootState, AppDispatch } from './store';
-import { fetchAllCountry, fetchOneCountry } from './thunks/country';
-import setUser from './thunks/user';
-import { setupStore } from './store';
-import fetchFavorites from './thunks/favorites';
-import fetchHistory from './thunks/history';
-
-// coutryReduser
-export { getCountriesPaginat };
-export { getAllCoutries };
-export { getOneCountry };
-export { fetchAllCountry };
-export { fetchOneCountry };
-export { getMaxPage };
 
 // historyReducer
-export { setHistory, addHistory };
-export { getAllHistory };
+import fetchHistory from './thunks/history';
 export { fetchHistory };
+export { setHistory, addHistory } from './reducers/historySlice';
+import getAllHistory from './selectors/historySelector';
+export { getAllHistory };
 
 // favoriteReducer
-export { addFavoriteCountry, setFavoriteCountry };
+import getFavoriteCountries from './selectors/favoriteSelector';
 export { getFavoriteCountries };
+export { addFavoriteCountry, setFavoriteCountry } from './reducers/favoriteSlice';
+import fetchFavorites from './thunks/favorites';
 export { fetchFavorites };
 
 // userReducer
-export { deleteUser };
-export { getUser };
+import setUser from './thunks/user';
 export { setUser };
+export { deleteUser } from './reducers/userSlice';
+export { getUser, getIsAuth } from './selectors/userSelector';
 
 // redux
-export { useAppDispatch, useAppSelector };
-export { type RootState, type AppDispatch };
-export { setupStore };
+export { useAppDispatch, useAppSelector } from './hooks/redux';
+export { type RootState, type AppDispatch, setupStore } from './store';
+/* eslint-enable */
