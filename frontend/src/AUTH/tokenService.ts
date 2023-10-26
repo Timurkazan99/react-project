@@ -16,6 +16,7 @@ class TokenService {
   async setToken(payload: JWTPayload) {
     const alg = 'HS256';
     const jwt = await new jose.SignJWT(payload)
+      .setIssuedAt()
       .setProtectedHeader({ alg })
       .setExpirationTime(this._time)
       .sign(new TextEncoder().encode(this._secret));

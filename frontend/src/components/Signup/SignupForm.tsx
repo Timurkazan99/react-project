@@ -1,18 +1,30 @@
 import { useState } from 'react';
-import * as jose from 'jose';
 import Input from '../Input';
 import { validateLogin, validatePasswordWhitRepeat } from '../../utils/validate';
+import isUserExist from '../../utils/isUserExist';
+import useRegistration from '../../hooks/useRegistration';
+import { useAppDispatch } from '../../hooks/redux';
+import { setUser } from '../../store';
 
-function SignupForm() {
+type Prop = { setActive: React.Dispatch<React.SetStateAction<boolean>> };
+
+function SignupForm({ setActive }: Prop) {
+  const dispatch = useAppDispatch();
   const [loginErr, setLoginErr] = useState('');
   const [loginValue, setLoginValue] = useState('');
   const [passErr, setPassErr] = useState('');
   const [repeatPass, setRepeatPass] = useState('');
   const [passValue, setPassValue] = useState('');
   const [repeatErr, setRepeatErr] = useState('');
-  const handleSubmit = () => {
-    const isValidLogin = validateLogin({ loginValue, setLoginErr });
+  const handleSubmit = async () => {
+    const isValidLogin = validateLogin({
+      loginValue,
+      setLoginErr,
+      setLoginValue,
+    });
     const isValidPass = validatePasswordWhitRepeat({
+      setPassValue,
+      setRepeatPass,
       passValue,
       setPassErr,
       repeatPass,
@@ -21,27 +33,16 @@ function SignupForm() {
     if (!isValidLogin || !isValidPass) {
       return null;
     }
-    const login = localStorage.getItem(loginValue);
-    if (login) {
-      return null; // такой уже есть!
+    if (isUserExist(loginValue)) {
+      setLoginErr('this user already exists');
+      return null;
     }
-    async function auth() {
-      const secret = new TextEncoder().encode(
-        'mama',
-      );
-      console.log(typeof secret);
-      const alg = 'HS256';
-      const jwt = await new jose.SignJWT({ stas: 'tovch' })
-        .setProtectedHeader({ alg })
-        .setExpirationTime('2h')
-        .sign(secret);
-      console.log(jwt);
-      const claims = jose.decodeJwt(jwt);
-      console.log(claims);
-    }
-    auth();
+    await useRegistration(loginValue, passValue);
+    dispatch(setUser());
+    setActive(false);
     return null;
   };
+
   return (
     <div className="signup__form">
       <Input

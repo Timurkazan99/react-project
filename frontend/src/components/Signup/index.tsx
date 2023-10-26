@@ -11,7 +11,7 @@ function SignUp() {
     <>
       <button type="button" className="signup__button" onClick={handleClick}>SignUp</button>
       <Modal setActive={setActive} active={active}>
-        <SignupForm />
+        <SignupForm setActive={setActive} />
       </Modal>
     </>
   );

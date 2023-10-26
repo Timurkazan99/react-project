@@ -1,12 +1,23 @@
-// countryReducer
-import getAllHistory from './selectors/historySelector';
-import getFavoriteCountries from './selectors/favoriteSelector';
-import getUser from './selectors/userSelector';
-
-export { fetchAllCountry, fetchOneCountry } from './thunks/country';
-export {
+import { addFavoriteCountry, setFavoriteCountry } from './reducers/favoriteSlice';
+import { setHistory, addHistory } from './reducers/historySlice';
+import { deleteUser } from './reducers/userSlice';
+import {
   getAllCoutries, getCountriesPaginat, getOneCountry, getMaxPage,
 } from './selectors/countrySelector';
+import getFavoriteCountries from './selectors/favoriteSelector';
+import getAllHistory from './selectors/historySelector';
+import getUser from './selectors/userSelector';
+import type { RootState, AppDispatch } from './store';
+import { fetchAllCountry, fetchOneCountry } from './thunks/country';
+import setUser from './thunks/user';
+
+// coutryReduser
+export { getCountriesPaginat };
+export { getAllCoutries };
+export { getOneCountry };
+export { fetchAllCountry };
+export { fetchOneCountry };
+export { getMaxPage };
 
 // historyReducer
 export { setHistory, addHistory } from './reducers/historySlice';

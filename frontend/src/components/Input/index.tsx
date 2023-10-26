@@ -15,7 +15,7 @@ function Input(props: Props) {
   const {
     error, placeholder, value, onClick, password,
   } = props;
-  const [isPassword, setIsPassword] = useState(true);
+  const [isPassword, setIsPassword] = useState(Boolean(password));
   const style = error ? 'Input__item_error' : 'Input__item';
   const icon = isPassword ? <IconEye /> : <IconEyeClosed />;
   const type = isPassword ? 'password' : 'text';
