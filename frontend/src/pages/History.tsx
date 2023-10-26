@@ -1,5 +1,10 @@
+import WithAuth from '../hoc/WithAuth';
+import HistoryList from '../components/HistoryList';
+
 function History() {
-  return <div />;
+  return (
+    <HistoryList />
+  );
 }
 
-export default History;
+export default WithAuth(History);
