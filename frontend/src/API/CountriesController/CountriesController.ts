@@ -20,7 +20,7 @@ export const getSearchedCountries = async (service: string, search: string): Pro
   return response.data.map(transformCountry);
 };
 
-export const getCountryByID = async (id: string): Promise<FullCountry> => {
+export const getById = async (id: string): Promise<FullCountry> => {
   const response = await axios.get(`https://restcountries.com/v3.1/alpha/${id}`);
   return transformFullCountry(response.data[0]);
 };

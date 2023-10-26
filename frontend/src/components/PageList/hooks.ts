@@ -1,6 +1,5 @@
-import getPageNumbers from '../../utils/getPageNumbers';
-import { useAppSelector } from '../../hooks/redux';
-import { getMaxPage } from '../../store';
+import { getPageNumbers } from '../../utils';
+import { getMaxPage, useAppSelector } from '../../store';
 
 const usePage = (searchParams: URLSearchParams): [number, number, number, number[]] => {
   const page = Number(searchParams.get('page'));

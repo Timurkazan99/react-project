@@ -1,11 +1,11 @@
 import {
   getAll,
   getSearchedCountries,
-  getCountryByID,
+  getById,
 } from './CountriesController';
 
 export {
   getAll,
   getSearchedCountries,
-  getCountryByID,
+  getById,
 };

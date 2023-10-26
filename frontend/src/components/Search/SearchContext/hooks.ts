@@ -2,7 +2,7 @@ import {
   createContext, useContext, useMemo, useState,
 } from 'react';
 import { Context } from './type';
-import getEnumKeyByString from '../../../utils/getEnumKeyByString';
+import { getEnumKeyByString } from '../../../utils';
 import { Country, SearchSelectTypes, SearchSelectKeys } from '../../../types';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */

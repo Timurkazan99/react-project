@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { routes } from '../../routes';
-import { MAIN } from '../../utils/const';
+import { MAIN } from '../../utils';
 
 function AppRouter() {
   return (

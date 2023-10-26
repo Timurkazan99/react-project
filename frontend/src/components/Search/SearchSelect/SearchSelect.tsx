@@ -1,7 +1,7 @@
 import {
   useCallback,
 } from 'react';
-import getEnumKeys from '../../../utils/getEnumKeys';
+import { getEnumKeys } from '../../../utils';
 import { SearchSelectTypes } from '../../../types';
 import Option from '../../Option';
 import { useSearchContext } from '../SearchContext';

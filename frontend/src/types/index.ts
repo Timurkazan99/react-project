@@ -1,13 +1,3 @@
-import type {
-  Country,
-  FullCountry,
-  History,
-  UserState,
-  CountryState,
-  FavoriteState,
-  HistoryState,
-} from './types';
-
 export type {
   Country,
   FullCountry,
@@ -16,6 +6,6 @@ export type {
   UserState,
   CountryState,
   FavoriteState,
-};
+} from './types';
 
 export { SearchSelectTypes, type SearchSelectKeys } from './SearchSelectTypes';
