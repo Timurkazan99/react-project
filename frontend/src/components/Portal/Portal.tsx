@@ -11,13 +11,14 @@ function Portal({ children, setActive }: Prop) {
   const element = children;
   useEffect(() => {
     function ch() {
+      console.log('yyyy');
       setActive(false);
     }
-    document.addEventListener('popstate', ch, true);
+    document.addEventListener('popstate', ch);
     document.body.append(portalRoot);
     return () => {
       document.body.removeChild(portalRoot);
-      document.removeEventListener('popstate', ch, true);
+      document.removeEventListener('popstate', ch);
     };
   }, []);
   return createPortal(element, portalRoot);

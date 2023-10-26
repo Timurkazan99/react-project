@@ -1,40 +1,50 @@
 .Input__container {
- margin-top: 40px;
+ position: relative;
  display: flex;
  flex-direction: column;
- height: 80px;
- width: 300px;
+ height: 90px;
+ width: 320px;
 }
 
 .Input__item {
- border: 1px solid #9b9b9b;
- border-radius: 7px;
- height: 50px;
+ border: none;
+ border-radius: 10px;
+ height: 40px;
  padding-left: 20px;
+ padding-right: 45px;
  color: #000000;
+ background-color: #f5f5f5;
  font-size: 20px;
 }
 
+
 .Input__item_error {
- border: 1px solid red;
- border-radius: 7px;
- height: 50px;
+ outline: 1px solid #ff2f2f;
+ border: none;
+ border-radius: 9px;
+ background-color: #f5f5f5;
+ height: 40px;
  padding-left: 20px;
  color: #000000;
  font-size: 20px;
 }
 
 .Input__item:focus {
- outline: 1px solid black;
- border: 1px solid #9b9b9b;
+ outline: 1px solid #9b9b9b;
 }
 
-.Input__item_error:focus {
- outline: 1px solid black;
- border: 1px solid #9b9b9b;
-}
 .Input__message_err {
  color: red;
  padding: 5px;
  text-align: end;
+}
+
+.Input__container > button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: rgb(75, 75, 75);
+  right: 15px;
+  top: 10px
 }

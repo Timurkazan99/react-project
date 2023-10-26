@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import Portal from '../Portal/Portal';
 import './modalStyle.scss';
+import { createPortal } from 'react-dom';
 
 interface Props {
   setActive: React.Dispatch<React.SetStateAction<boolean>>
@@ -9,18 +9,20 @@ interface Props {
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Modal({ active, children, setActive } : Props) {
-  if (!active) {
+  const portal = document.getElementById('portal');
+
+  if (!active || !portal) {
     return null;
   }
-  return (
-    <Portal setActive={setActive}>
-      <div className="modal__container">
-        <div className="modal__content">
-          {children}
-        </div>
+
+  return (createPortal(
+    <div className="modal__container">
+      <div className="modal__content">
+        {children}
       </div>
-    </Portal>
-  );
+    </div>,
+    portal,
+  ));
 }
 
 export default Modal;

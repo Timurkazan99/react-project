@@ -5,7 +5,7 @@ import {
 } from '../../store';
 import IconExit from '../Icons/IconExit';
 import IconPerson from '../Icons/IconPerson';
-import Signup from '../Signup/Signup';
+import SignUp from '../Signup';
 
 function NavAuth() {
   const user = useAppSelector(getUser);
@@ -19,15 +19,7 @@ function NavAuth() {
   };
   return !user.login
     ? (
-      <>
-        <Link className="Nav__navlink" to="/signin">
-          signIn
-        </Link>
-        <Signup />
-        <Link className="Nav__navlink" to="/signup">
-          signUp
-        </Link>
-      </>
+      <SignUp />
     )
     : (
       <>
