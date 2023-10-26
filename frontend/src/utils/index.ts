@@ -7,7 +7,7 @@ import getEnumKeyByString from './getEnumKeyByString';
 import getPageNumbers from './getPageNumbers';
 
 export {
-  LIMIT, INPUT_DELAY, ID, MAIN, SEARCH, SIGNIN, SIGNUP, HISTORY, FAVORITES,
+  LIMIT, INPUT_DELAY, ID, MAIN, SEARCH, HISTORY, FAVORITES,
 } from './const';
 export { getEnumKeys };
 export { getErrorMessage };

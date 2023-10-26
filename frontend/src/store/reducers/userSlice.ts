@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { UserState } from '../../types';
+import setUser from '../thunks/user';
 
 const initialState: UserState = {
   login: '',
@@ -11,15 +12,15 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser(state, action: PayloadAction<UserState>) {
-      return action.payload;
-    },
     deleteUser(state) {
       state.login = '';
       state.password = '';
     },
   },
+  extraReducers: {
+    [setUser.fulfilled.type]: (state, action: PayloadAction<UserState>) => action.payload,
+  },
 });
 
 export default userSlice.reducer;
-export const { setUser, deleteUser } = userSlice.actions;
+export const { deleteUser } = userSlice.actions;
