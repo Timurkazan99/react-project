@@ -1,5 +1,5 @@
 import React from 'react';
-import InputPwd from './InputPwd';
+import InputPswd from './InputPswd';
 import InputDefault from './InputDefault';
 import './Input.scss';
 
@@ -23,7 +23,7 @@ function Input(props: Props) {
       onClick={onClick}
     />
   ) : (
-    <InputPwd
+    <InputPswd
       error={error}
       placeholder={placeholder}
       value={value}

@@ -2,17 +2,13 @@
 import { JWTPayload, SignJWT } from 'jose';
 import { SECRET_TOKEN, TIMER_TOKEN } from '../utils/const';
 
-const timer = TIMER_TOKEN;
-const secret = SECRET_TOKEN;
-
 async function setToken(payload: JWTPayload) {
-  console.log('d', secret);
   const alg = 'HS256';
   const jwt = await new SignJWT(payload)
     .setIssuedAt()
     .setProtectedHeader({ alg })
-    .setExpirationTime(timer)
-    .sign(new TextEncoder().encode(secret));
+    .setExpirationTime(TIMER_TOKEN)
+    .sign(new TextEncoder().encode(SECRET_TOKEN));
   return jwt;
 }
 

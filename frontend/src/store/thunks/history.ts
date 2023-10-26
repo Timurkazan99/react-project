@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { decodeToken } from '../../AUTH';
 
 const fetchHistory = createAsyncThunk(
-  'country/initHistory',
+  'country/fetchHistory',
   async () => {
     const token = localStorage.getItem('sessionStorage');
     if (!token) {

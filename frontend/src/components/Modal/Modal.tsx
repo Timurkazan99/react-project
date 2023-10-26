@@ -9,8 +9,8 @@ interface Props {
   active: boolean
 }
 function Modal({ active, children, setActive } : Props) {
-  const { pathname } = useLocation();
-  useEffect(() => setActive(false), [pathname]);
+  const { pathname, search } = useLocation();
+  useEffect(() => setActive(false), [pathname, search]);
   const portal = document.getElementById('portal');
 
   if (!active || !portal) {

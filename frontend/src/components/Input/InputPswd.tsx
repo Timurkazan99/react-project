@@ -10,7 +10,7 @@ interface Props {
   password: boolean
 }
 
-function InputPwd(props: Props) {
+function InputPswd(props: Props) {
   const {
     error, placeholder, value, onClick,
   } = props;
@@ -40,4 +40,4 @@ function InputPwd(props: Props) {
   );
 }
 
-export default InputPwd;
+export default InputPswd;

@@ -10,4 +10,4 @@ export const LIMIT = Number(process.env.LIMIT) || 20;
 
 export const INPUT_DELAY = 500; // delay in ms
 export const SECRET_TOKEN = process.env.REACT_APP_SECRET;
-export const TIMER_TOKEN = process.env.REAC_APP_TIMER_TOKEN || '2440000h';
+export const TIMER_TOKEN = process.env.REAC_APP_TIMER_TOKEN || '2440h';

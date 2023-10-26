@@ -9,6 +9,7 @@ import {
 function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
+    dispatch(fetchAllCountry());
     const token = localStorage.getItem('sessionStorage');
     if (!token) {
       return;
@@ -16,7 +17,6 @@ function App() {
     dispatch(setUser());
     dispatch(fetchHistory());
     dispatch(fetchFavorites());
-    dispatch(fetchAllCountry());
   }, []);
 
   return (
