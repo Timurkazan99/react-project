@@ -1,5 +1,5 @@
 import HistoryItem from '../HistoryItem';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '../../store';
 import getAllHistory from '../../store/selectors/historySelector';
 import './HistoryList.scss';
 
