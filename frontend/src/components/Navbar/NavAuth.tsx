@@ -1,5 +1,4 @@
-import { useAppSelector } from '../../hooks/redux';
-import { getUser } from '../../store';
+import { getUser, useAppSelector } from '../../store';
 import SignUp from '../Signup';
 import NavUser from './NavUser';
 

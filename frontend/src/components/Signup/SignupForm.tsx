@@ -3,8 +3,7 @@ import Input from '../Input';
 import { validateLogin, validatePasswordWhitRepeat } from '../../utils/validate';
 import isUserExist from '../../utils/isUserExist';
 import useRegistration from '../../hooks/useRegistration';
-import { useAppDispatch } from '../../hooks/redux';
-import { setUser } from '../../store';
+import { setUser, useAppDispatch } from '../../store';
 
 type Prop = { setActive: React.Dispatch<React.SetStateAction<boolean>> };
 
@@ -73,7 +72,6 @@ function SignupForm({ setActive }: Prop) {
         SignUp
       </button>
     </div>
-
   );
 }
 

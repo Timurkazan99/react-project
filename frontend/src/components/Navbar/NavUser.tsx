@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import {
-  setFavoriteCountry, setHistory, deleteUser, getUser,
+  setFavoriteCountry, setHistory, deleteUser, getUser, useAppDispatch, useAppSelector,
 } from '../../store';
 import IconExit from '../Icons/IconExit';
 import IconPerson from '../Icons/IconPerson';

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getAll, getCountryByID } from '../../API';
+import { getAll, getById } from '../../API';
 
 export const fetchAllCountry = createAsyncThunk(
   'country/fetchAll',
@@ -12,7 +12,7 @@ export const fetchAllCountry = createAsyncThunk(
 export const fetchOneCountry = createAsyncThunk(
   'country/fetchOne',
   async (id: string) => {
-    const data = await getCountryByID(id);
+    const data = await getById(id);
     return data;
   },
 );
