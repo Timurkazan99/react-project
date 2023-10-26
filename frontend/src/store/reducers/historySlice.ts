@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { HistoryState, History } from '../../types';
-import initHistory from '../thunks/history';
+import fetchHistory from '../thunks/history';
 
 const initialState: HistoryState = [];
 
@@ -17,7 +17,7 @@ export const historySlice = createSlice({
     },
   },
   extraReducers: {
-    [initHistory.fulfilled.type]: (state, action: PayloadAction<History[]>) => action.payload,
+    [fetchHistory.fulfilled.type]: (state, action: PayloadAction<History[]>) => action.payload,
   },
 });
 

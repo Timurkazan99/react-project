@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Input from '../Input';
-import { validateLogin, validatePasswordWhitRepeat } from '../../utils/validate';
+import { validateLogin, validatePassword, validateRepeatPass } from '../../utils/validate';
 import isUserExist from '../../utils/isUserExist';
 import useRegistration from '../../hooks/useRegistration';
 import { setUser, useAppDispatch } from '../../store';
+import Input from '../Input';
 
 type Prop = { setActive: React.Dispatch<React.SetStateAction<boolean>> };
 
@@ -21,15 +21,18 @@ function SignupForm({ setActive }: Prop) {
       setLoginErr,
       setLoginValue,
     });
-    const isValidPass = validatePasswordWhitRepeat({
+    const isValidPass = validatePassword({
       setPassValue,
-      setRepeatPass,
       passValue,
       setPassErr,
+    });
+    const isValidRepeatPass = validateRepeatPass({
+      passValue,
       repeatPass,
       setRepeatErr,
+      setRepeatPass,
     });
-    if (!isValidLogin || !isValidPass) {
+    if (!isValidLogin || !isValidPass || !isValidRepeatPass) {
       return null;
     }
     if (isUserExist(loginValue)) {
@@ -44,25 +47,26 @@ function SignupForm({ setActive }: Prop) {
 
   return (
     <div className="signup__form">
+      <div className="signup__title">registration</div>
       <Input
         error={loginErr}
         value={loginValue}
         placeholder="login"
-        onClick={({ target }) => setLoginValue(target.value)}
+        onClick={({ target }) => setLoginValue(target.value.trim())}
       />
       <Input
         password
         error={passErr}
         value={passValue}
         placeholder="password"
-        onClick={({ target }) => setPassValue(target.value)}
+        onClick={({ target }) => setPassValue(target.value.trim())}
       />
       <Input
         password
         error={repeatErr}
         value={repeatPass}
         placeholder="repeat password"
-        onClick={({ target }) => setRepeatPass(target.value)}
+        onClick={({ target }) => setRepeatPass(target.value.trim())}
       />
       <button
         className="signup__formbutton_submit"

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { decodeToken } from '../../AUTH';
 
-const initHistory = createAsyncThunk(
+const fetchHistory = createAsyncThunk(
   'country/initHistory',
   async () => {
     const token = localStorage.getItem('sessionStorage');
@@ -15,4 +15,4 @@ const initHistory = createAsyncThunk(
   },
 );
 
-export default initHistory;
+export default fetchHistory;

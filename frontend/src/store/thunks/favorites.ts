@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { decodeToken } from '../../AUTH';
 
-const initFavorites = createAsyncThunk(
+const fetchFavorites = createAsyncThunk(
   'favorite/initFavorites',
   async () => {
     const token = localStorage.getItem('sessionStorage');
@@ -17,4 +17,4 @@ const initFavorites = createAsyncThunk(
   },
 );
 
-export default initFavorites;
+export default fetchFavorites;

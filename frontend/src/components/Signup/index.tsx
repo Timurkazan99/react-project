@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
-import './signupStyle.scss';
+import './Signup.scss';
 import SignupForm from './SignupForm';
 
 function SignUp() {

@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect } from 'react';
-import './modalStyle.scss';
+import './Modal.scss';
 import { createPortal } from 'react-dom';
 import { useLocation } from 'react-router-dom';
 

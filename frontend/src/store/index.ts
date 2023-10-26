@@ -12,6 +12,8 @@ import type { RootState, AppDispatch } from './store';
 import { fetchAllCountry, fetchOneCountry } from './thunks/country';
 import setUser from './thunks/user';
 import { setupStore } from './store';
+import fetchFavorites from './thunks/favorites';
+import fetchHistory from './thunks/history';
 
 // coutryReduser
 export { getCountriesPaginat };
@@ -24,10 +26,12 @@ export { getMaxPage };
 // historyReducer
 export { setHistory, addHistory };
 export { getAllHistory };
+export { fetchHistory };
 
 // favoriteReducer
 export { addFavoriteCountry, setFavoriteCountry };
 export { getFavoriteCountries };
+export { fetchFavorites };
 
 // userReducer
 export { deleteUser };

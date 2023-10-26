@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import InputPwd from './InputPwd';
+import InputDefault from './InputDefault';
 import './Input.scss';
-import IconEyeClosed from '../Icons/IconEyeClosed';
-import IconEye from '../Icons/IconEye';
 
 interface Props {
-  error?: string
+  error: string
   placeholder: string
   value: string
   onClick: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
@@ -13,36 +13,23 @@ interface Props {
 
 function Input(props: Props) {
   const {
-    error, placeholder, value, onClick, password,
+    password, error, placeholder, value, onClick,
   } = props;
-  const [isPassword, setIsPassword] = useState(Boolean(password));
-  const style = error ? 'Input__item_error' : 'Input__item';
-  const icon = isPassword ? <IconEye /> : <IconEyeClosed />;
-  const type = isPassword ? 'password' : 'text';
-  function togglePass() {
-    setIsPassword(!isPassword);
-  }
-  return (
-    <div className="Input__container">
-      { password && (
-        <button
-          className="input__container_button"
-          type="button"
-          onClick={togglePass}
-        >
-          {icon}
-        </button>
-      )}
-      <input
-        type={type}
-        value={value}
-        onChange={onClick}
-        placeholder={placeholder}
-        className={style}
-      />
-      {error && <span className="Input__message_err">{error}</span>}
-    </div>
-
+  return !password ? (
+    <InputDefault
+      error={error}
+      placeholder={placeholder}
+      value={value}
+      onClick={onClick}
+    />
+  ) : (
+    <InputPwd
+      error={error}
+      placeholder={placeholder}
+      value={value}
+      onClick={onClick}
+      password={password}
+    />
   );
 }
 

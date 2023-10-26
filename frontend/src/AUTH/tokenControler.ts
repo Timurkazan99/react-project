@@ -1,11 +1,10 @@
-import { JWTPayload } from 'jose';
-import * as jose from 'jose';
-import tokenService from './tokenService';
+import { JWTPayload, decodeJwt } from 'jose';
+import setToken from './tokenService';
 
 export async function createToken(payload: JWTPayload): Promise<string> {
-  const jwt = await tokenService.setToken(payload);
+  const jwt = await setToken(payload);
   return jwt;
 }
 
-type DecodJWT = JWTPayload & { login: string, password: string };
-export function decodeToken(jwt: string): DecodJWT { return jose.decodeJwt(jwt) as DecodJWT; }
+type DecodeJWT = JWTPayload & { login: string, password: string };
+export function decodeToken(jwt: string): DecodeJWT { return decodeJwt(jwt) as DecodeJWT; }

@@ -1,9 +1,13 @@
-interface PropPassWithRepeat {
+interface PropPass {
+  passValue: string
+  setPassValue: React.Dispatch<React.SetStateAction<string>>
+  setPassErr: React.Dispatch<React.SetStateAction<string>>
+}
+
+interface PropRepeatPass {
   passValue: string
   repeatPass: string
   setRepeatPass: React.Dispatch<React.SetStateAction<string>>
-  setPassValue: React.Dispatch<React.SetStateAction<string>>
-  setPassErr: React.Dispatch<React.SetStateAction<string>>
   setRepeatErr: React.Dispatch<React.SetStateAction<string>>
 }
 
@@ -28,14 +32,11 @@ export function validateLogin({ loginValue, setLoginErr, setLoginValue }: PropLo
   return true;
 }
 
-export function validatePasswordWhitRepeat({
+export function validatePassword({
   setPassValue,
-  setRepeatPass,
   passValue,
   setPassErr,
-  repeatPass,
-  setRepeatErr,
-}: PropPassWithRepeat) {
+}: PropPass) {
   if (!passValue) {
     setPassErr('this field is required');
     setPassValue('');
@@ -47,6 +48,20 @@ export function validatePasswordWhitRepeat({
     return false;
   }
   setPassErr('');
+  return true;
+}
+
+export function validateRepeatPass({
+  passValue,
+  repeatPass,
+  setRepeatPass,
+  setRepeatErr,
+}: PropRepeatPass) {
+  if (!repeatPass) {
+    setRepeatErr('this field is required');
+    setRepeatPass('');
+    return false;
+  }
   if (passValue !== repeatPass) {
     setRepeatErr('passwords are not identical');
     setRepeatPass('');

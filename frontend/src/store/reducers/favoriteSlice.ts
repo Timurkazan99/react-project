@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { FavoriteState } from '../../types';
-import initFavorites from '../thunks/favorites';
+import fetchFavorites from '../thunks/favorites';
 
 const initialState: FavoriteState = [];
 
@@ -17,7 +17,7 @@ export const favoriteSlice = createSlice({
     },
   },
   extraReducers: {
-    [initFavorites.fulfilled.type]: (state, action: PayloadAction<string[]>) => action.payload,
+    [fetchFavorites.fulfilled.type]: (state, action: PayloadAction<string[]>) => action.payload,
   },
 });
 

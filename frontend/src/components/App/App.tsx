@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import NavBar from '../Navbar';
 import AppRouter from '../AppRouter';
 import '../../styles/style.scss';
-import { fetchAllCountry, setUser, useAppDispatch } from '../../store';
-import initHistory from '../../store/thunks/history';
-import initFavorites from '../../store/thunks/favorites';
+import {
+  fetchAllCountry, fetchFavorites, fetchHistory, setUser, useAppDispatch,
+} from '../../store';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -14,8 +14,8 @@ function App() {
       return;
     }
     dispatch(setUser());
-    dispatch(initHistory());
-    dispatch(initFavorites());
+    dispatch(fetchHistory());
+    dispatch(fetchFavorites());
     dispatch(fetchAllCountry());
   }, []);
 
