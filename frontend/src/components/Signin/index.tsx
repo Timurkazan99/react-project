@@ -1,20 +1,19 @@
 import { useState } from 'react';
+import SigninForm from './SigninForm';
 import Modal from '../Modal/Modal';
-import './Signup.scss';
-import SignupForm from './SignupForm';
+import './Signin.scss';
 
-function SignUp() {
+function Signin() {
   const [active, setActive] = useState(false);
-
   const handleClick = () => setActive(true);
   return (
     <>
-      <button type="button" className="signup__button" onClick={handleClick}>SignUp</button>
+      <button type="button" className="signin__button" onClick={handleClick}>SignIn</button>
       <Modal setActive={setActive} active={active}>
-        <SignupForm setActive={setActive} />
+        <SigninForm setActive={setActive} />
       </Modal>
     </>
   );
 }
 
-export default SignUp;
+export default Signin;

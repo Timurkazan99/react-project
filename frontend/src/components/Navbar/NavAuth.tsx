@@ -1,13 +1,13 @@
 import { getUser, useAppSelector } from '../../store';
+import Signin from '../Signin';
 import SignUp from '../Signup';
 import NavUser from './NavUser';
-import SignIn from './Signin';
 
 function NavAuth() {
   const user = useAppSelector(getUser);
   return user.login ? <NavUser /> : (
     <>
-      <SignIn />
+      <Signin />
       <SignUp />
     </>
   );

@@ -52,21 +52,24 @@ function SignupForm({ setActive }: Prop) {
         error={loginErr}
         value={loginValue}
         placeholder="login"
-        onClick={({ target }) => setLoginValue(target.value.trim())}
+        onChange={({ target }) => setLoginValue(target.value.trim())}
+        onFocus={() => setLoginErr('')}
       />
       <Input
         password
         error={passErr}
         value={passValue}
         placeholder="password"
-        onClick={({ target }) => setPassValue(target.value.trim())}
+        onChange={({ target }) => setPassValue(target.value.trim())}
+        onFocus={() => setPassErr('')}
       />
       <Input
         password
         error={repeatErr}
         value={repeatPass}
         placeholder="repeat password"
-        onClick={({ target }) => setRepeatPass(target.value.trim())}
+        onChange={({ target }) => setRepeatPass(target.value.trim())}
+        onFocus={() => setRepeatErr('')}
       />
       <button
         className="signup__formbutton_submit"

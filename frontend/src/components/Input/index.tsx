@@ -7,27 +7,30 @@ interface Props {
   error: string
   placeholder: string
   value: string
-  onClick: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
   password?: boolean
+  onFocus?: ({ target }: React.FocusEvent<HTMLInputElement>) => void
 }
 
 function Input(props: Props) {
   const {
-    password, error, placeholder, value, onClick,
+    password, error, placeholder, value, onChange, onFocus,
   } = props;
   return !password ? (
     <InputDefault
       error={error}
       placeholder={placeholder}
       value={value}
-      onClick={onClick}
+      onFocus={onFocus}
+      onChange={onChange}
     />
   ) : (
     <InputPswd
       error={error}
       placeholder={placeholder}
       value={value}
-      onClick={onClick}
+      onChange={onChange}
+      onFocus={onFocus}
       password={password}
     />
   );
