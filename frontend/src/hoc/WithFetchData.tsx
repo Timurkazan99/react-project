@@ -4,13 +4,16 @@ import Loader from '../components/Loader';
 
 type FetchData = (dispatch: AppDispatch) => void;
 
+type UseFetchData = () => FetchData;
+
 function WithFetchData <T extends Attributes>(
   WrappedComponent: ComponentType<T>,
-  fetch: FetchData,
+  useFetchData: UseFetchData,
 ) {
   function ComponentWithFetchData(props: T) {
     const dispatch = useAppDispatch();
     const isLoading = useAppSelector((state) => state.country.isLoading);
+    const fetch = useFetchData();
 
     useEffect(() => {
       fetch(dispatch);

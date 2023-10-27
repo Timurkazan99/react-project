@@ -4,7 +4,7 @@ import PageList from '../components/PageList/PageList';
 import { WithPagination, WithFetchData } from '../hoc';
 import { AppDispatch, fetchAllCountry } from '../store';
 
-const fetch = (dispatch: AppDispatch) => dispatch(fetchAllCountry());
+const fetch = () => (dispatch: AppDispatch) => dispatch(fetchAllCountry());
 
 function Main() {
   return (

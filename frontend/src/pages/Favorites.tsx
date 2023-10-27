@@ -3,7 +3,7 @@ import PageList from '../components/PageList';
 import { WithPagination, WithFetchData, WithAuth } from '../hoc';
 import { fetchFavoritesCountries, AppDispatch } from '../store';
 
-const fetch = (dispatch: AppDispatch) => dispatch(fetchFavoritesCountries());
+const fetch = () => (dispatch: AppDispatch) => dispatch(fetchFavoritesCountries());
 
 function Favorites() {
   return (
