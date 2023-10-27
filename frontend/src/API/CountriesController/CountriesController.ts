@@ -24,3 +24,17 @@ export const getById = async (id: string): Promise<FullCountry> => {
   const response = await axios.get(`https://restcountries.com/v3.1/alpha/${id}`);
   return transformFullCountry(response.data[0]);
 };
+
+export const getFavoritesCountries = async (ids: string[]): Promise<Country[]> => {
+  if (ids.length === 0) {
+    return [];
+  }
+
+  const response = await axios.get('https://restcountries.com/v3.1/alpha/', {
+    params: {
+      fields: 'cca3,name,capital,population,flags',
+      codes: ids.join(','),
+    },
+  });
+  return response.data.map(transformCountry);
+};
