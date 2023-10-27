@@ -19,6 +19,8 @@ export const transformCountry = (country: any): Country => ({
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const transformFullCountry = (fullCountry: any): FullCountry => ({
   ...fullCountry,
+  languages: fullCountry.languages ?? {},
+  capital: fullCountry.capital ?? [],
   name: {
     common: fullCountry.name.common,
     official: fullCountry.name.official,
