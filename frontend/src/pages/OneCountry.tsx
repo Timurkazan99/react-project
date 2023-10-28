@@ -24,16 +24,42 @@ function OneCountry() {
     <div className="one-country">
       <img className="one-country__pic--flag" src={item.flags.png} alt={item.flags.alt} />
       <div>Information about country:</div>
-      <div>{`Official name: ${item.name.official}`}</div>
-      <div>{`Capital: ${item.capital.join(' , ')}`}</div>
-      <div>{`Area: ${item.area.toLocaleString('ru')} km2`}</div>
-      <div>{`Population: ${item.population.toLocaleString('ru')} people`}</div>
-      <div>{`Languages: ${showLangs(item.languages)}`}</div>
-      <div>{`Currency: ${item.currencies}`}</div>
-      <div>{`Independent: ${item.independent ? 'Yes' : 'No'}`}</div>
-      <div>{`Continents: ${item.continents.join('and')}`}</div>
-      <div>{`Region: ${item.region}`}</div>
-      <div>{`Subregion: ${item.subregion}`}</div>
+      <div>
+        <span className="one-country__item-title">Official name: </span>
+        <span className="one-country__item-info">{item.name.official}</span>
+      </div>
+      <div>
+        <span className="one-country__item-title">Capital: </span>
+        <span className="one-country__item-info">{item.capital.join(' , ')}</span>
+      </div>
+      <div>
+        <span className="one-country__item-title">Area: </span>
+        <span className="one-country__item-info">{`${item.area.toLocaleString('ru')} km2`}</span>
+      </div>
+      <div>
+        <span className="one-country__item-title">Population: </span>
+        <span className="one-country__item-info">{`${item.population.toLocaleString('ru')} people`}</span>
+      </div>
+      <div>
+        <span className="one-country__item-title">Languages: </span>
+        <span className="one-country__item-info">{showLangs(item.languages)}</span>
+      </div>
+      <div>
+        <span className="one-country__item-title">Independent: </span>
+        <span className="one-country__item-info">{`${item.independent ? 'Yes' : 'No'}`}</span>
+      </div>
+      <div>
+        <span className="one-country__item-title">Continents: </span>
+        <span className="one-country__item-info">{item.continents.join('and')}</span>
+      </div>
+      <div>
+        <span className="one-country__item-title">Region: </span>
+        <span className="one-country__item-info">{item.region}</span>
+      </div>
+      <div>
+        <span className="one-country__item-title">Subregion: </span>
+        <span className="one-country__item-info">{item.subregion}</span>
+      </div>
       <img className="one-country__pic--coatOfArms" src={item.coatOfArms.png} alt={item.coatOfArms.alt} />
     </div>
   );
