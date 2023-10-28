@@ -8,7 +8,7 @@ const fetch = () => (dispatch: AppDispatch) => dispatch(fetchAllCountry());
 
 function Main() {
   return (
-    <div className="main__container">
+    <div className="main__container flex-col-100">
       <Search />
       <CountryList />
       <PageList />

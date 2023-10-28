@@ -7,7 +7,7 @@ const fetch = () => (dispatch: AppDispatch) => dispatch(fetchFavoritesCountries(
 
 function Favorites() {
   return (
-    <div className="main__container">
+    <div className="favorites__container flex-col-100">
       <CountryList />
       <PageList />
     </div>
