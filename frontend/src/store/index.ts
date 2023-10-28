@@ -1,6 +1,6 @@
 /* eslint-disable */
 // countryReducer
-export { fetchAllCountry, fetchOneCountry } from './thunks/country';
+export { fetchAllCountry, fetchOneCountry, fetchFavoritesCountries } from './thunks/country';
 export {
   getAllCoutries, getCountriesPaginat, getOneCountry, getMaxPage,
 } from './selectors/countrySelector';
