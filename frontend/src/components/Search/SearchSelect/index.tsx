@@ -8,14 +8,17 @@ import { useSearchContext } from '../SearchContext';
 import Select from '../../Select';
 
 function SearchSelect() {
-  const { type, setType } = useSearchContext();
+  const { type, setType, setResults } = useSearchContext();
 
   const enumKeys = getEnumKeys(SearchSelectTypes);
   const options = enumKeys.map((key) => (
     <Option key={key} value={key}>{SearchSelectTypes[key]}</Option>
   ));
 
-  const clickHandler = useCallback(setType, [setType]);
+  const clickHandler = useCallback((newValue: string) => {
+    setResults([]);
+    setType(newValue);
+  }, [setType]);
 
   return (
     <Select onChange={clickHandler} title={SearchSelectTypes[type]}>
