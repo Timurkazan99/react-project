@@ -1,5 +1,4 @@
 import {
-  memo,
   MouseEvent, useCallback, useRef, useState,
 } from 'react';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
@@ -57,4 +56,4 @@ jsx-a11y/no-noninteractive-element-interactions
 */
 }
 
-export default memo(Select);
+export default Select;
