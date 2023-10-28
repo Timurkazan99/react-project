@@ -1,4 +1,3 @@
-import React from 'react';
 import { createSearchParams, useNavigate, useSearchParams } from 'react-router-dom';
 import usePage from './hooks';
 import './PageList.scss';

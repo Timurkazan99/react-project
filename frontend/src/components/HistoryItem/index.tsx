@@ -1,8 +1,7 @@
 import { Link, createSearchParams } from 'react-router-dom';
 import { memo } from 'react';
 import { Props } from './type';
-import { LIMIT, SEARCH } from '../../utils/const';
-import getEnumKeyByString from '../../utils/getEnumKeyByString';
+import { LIMIT, SEARCH, getEnumKeyByString } from '../../utils';
 import { SearchSelectTypes } from '../../types';
 
 function HistoryItem(props: Props) {

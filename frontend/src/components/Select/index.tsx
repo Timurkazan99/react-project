@@ -1,4 +1,4 @@
-import React, {
+import {
   memo,
   MouseEvent, useCallback, useRef, useState,
 } from 'react';

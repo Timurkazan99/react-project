@@ -1,4 +1,3 @@
-import React from 'react';
 import CountryItem from '../CountryItem';
 import { getCountriesPaginat, useAppSelector } from '../../store';
 import UseGetSearchParams from '../../hooks/useGetSearchParams';

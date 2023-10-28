@@ -1,6 +1,6 @@
 import Search from '../components/Search';
 import CountryList from '../components/CountryList';
-import PageList from '../components/PageList/PageList';
+import PageList from '../components/PageList';
 import { WithPagination, WithFetchData } from '../hoc';
 import { AppDispatch, fetchAllCountry } from '../store';
 
