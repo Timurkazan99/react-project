@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { validateLogin, validatePassword, validateRepeatPass } from '../../utils/validate';
 import isUserExist from '../../utils/isUserExist';
-import useRegistration from '../../hooks/useRegistration';
 import { setUser, useAppDispatch } from '../../store';
 import Input from '../Input';
+import { setRegistration } from '../../utils';
 
 type Prop = { setActive: React.Dispatch<React.SetStateAction<boolean>> };
 
-function SignupForm({ setActive }: Prop) {
+function SignUpForm({ setActive }: Prop) {
   const dispatch = useAppDispatch();
   const [loginErr, setLoginErr] = useState('');
   const [loginValue, setLoginValue] = useState('');
@@ -39,7 +39,7 @@ function SignupForm({ setActive }: Prop) {
       setLoginErr('this user already exists');
       return null;
     }
-    await useRegistration(loginValue, passValue);
+    await setRegistration(loginValue, passValue);
     dispatch(setUser());
     setActive(false);
     return null;
@@ -52,21 +52,24 @@ function SignupForm({ setActive }: Prop) {
         error={loginErr}
         value={loginValue}
         placeholder="login"
-        onClick={({ target }) => setLoginValue(target.value.trim())}
+        onChange={({ target }) => setLoginValue(target.value.trim())}
+        onFocus={() => setLoginErr('')}
       />
       <Input
         password
         error={passErr}
         value={passValue}
         placeholder="password"
-        onClick={({ target }) => setPassValue(target.value.trim())}
+        onChange={({ target }) => setPassValue(target.value.trim())}
+        onFocus={() => setPassErr('')}
       />
       <Input
         password
         error={repeatErr}
         value={repeatPass}
         placeholder="repeat password"
-        onClick={({ target }) => setRepeatPass(target.value.trim())}
+        onChange={({ target }) => setRepeatPass(target.value.trim())}
+        onFocus={() => setRepeatErr('')}
       />
       <button
         className="signup__formbutton_submit"
@@ -79,4 +82,4 @@ function SignupForm({ setActive }: Prop) {
   );
 }
 
-export default SignupForm;
+export default SignUpForm;

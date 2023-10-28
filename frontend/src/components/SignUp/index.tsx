@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from '../Modal/Modal';
-import './Signup.scss';
-import SignupForm from './SignupForm';
+import './SignUp.scss';
+import SignUpForm from './SignUpForm';
 
 function SignUp() {
   const [active, setActive] = useState(false);
@@ -11,7 +11,7 @@ function SignUp() {
     <>
       <button type="button" className="signup__button" onClick={handleClick}>SignUp</button>
       <Modal setActive={setActive} active={active}>
-        <SignupForm setActive={setActive} />
+        <SignUpForm setActive={setActive} />
       </Modal>
     </>
   );

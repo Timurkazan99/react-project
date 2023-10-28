@@ -6,13 +6,14 @@ interface Props {
   error: string
   placeholder: string
   value: string
-  onClick: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
-  password: boolean
+  onChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
+  onFocus?: ({ target }: React.FocusEvent<HTMLInputElement>) => void
+  password: true
 }
 
 function InputPswd(props: Props) {
   const {
-    error, placeholder, value, onClick,
+    error, placeholder, value, onChange, onFocus,
   } = props;
   const [isVisible, setIsVisible] = useState(false);
   const icon = !isVisible ? <IconEye /> : <IconEyeClosed />;
@@ -31,7 +32,8 @@ function InputPswd(props: Props) {
       <input
         type={type}
         value={value}
-        onChange={onClick}
+        onChange={onChange}
+        onFocus={onFocus}
         placeholder={placeholder}
         className={style}
       />
