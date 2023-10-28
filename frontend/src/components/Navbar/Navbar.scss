@@ -114,3 +114,18 @@ background-color: rgba(210, 210, 210, 0.577);
 .active {
     border-bottom: 4px solid  rgb(255, 105, 63);
 }
+
+.sign__button {
+    padding: 0 10px;
+    font-size: 15px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      background-color: rgba(210, 210, 210, 0.577);
+    }
+  }
