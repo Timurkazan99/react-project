@@ -5,7 +5,7 @@ import '../../styles/style.scss';
 import {
   fetchAllCountry, fetchFavorites, fetchHistory, setUser, useAppDispatch,
 } from '../../store';
-import Modal2 from '../Modal2';
+import Modal from '../Modal';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -26,7 +26,7 @@ function App() {
       <div className="container">
         <AppRouter />
       </div>
-      <Modal2 />
+      <Modal />
     </>
   );
 }
