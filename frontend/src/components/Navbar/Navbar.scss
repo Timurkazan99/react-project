@@ -1,10 +1,12 @@
 .Nav__container {
     display: flex;
-    position: fixed;
+    position: sticky;
     align-items: center;
     background-color: rgb(34, 34, 42);
-    width: 100vw;
+    width: 100%;
     height: 50px;
+    top: 0;
+    z-index: 1000;
 }
 
 .Nav__container_logo {
