@@ -1,9 +1,10 @@
-import React from 'react';
 import { getEnumKeyByString } from '../../../utils';
 import { SearchSelectTypes } from '../../../types';
 import UseGetSearchParams from '../../../hooks/useGetSearchParams';
 import { useGetContextValue, SearchContext as Context } from './hooks';
 import { Props } from './type';
+
+export { useSearchContext } from './hooks';
 
 function SearchContext(props: Props) {
   const { children } = props;
