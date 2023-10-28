@@ -1,4 +1,3 @@
-import React from 'react';
 import InputPswd from './InputPswd';
 import InputDefault from './InputDefault';
 import './Input.scss';
