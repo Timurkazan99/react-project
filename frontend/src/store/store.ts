@@ -3,12 +3,14 @@ import country from './reducers/countrySlice';
 import user from './reducers/userSlice';
 import history from './reducers/historySlice';
 import favorite from './reducers/favoriteSlice';
+import modal from './reducers/modalSlice';
 
 const rootReducer = combineReducers({
   country,
   user,
   history,
   favorite,
+  modal,
 });
 
 export const setupStore = () => configureStore({
