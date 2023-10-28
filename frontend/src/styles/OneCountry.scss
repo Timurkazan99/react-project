@@ -1,0 +1,27 @@
+.one-country {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+  .one-country__title {
+    text-decoration: underline;
+    font-size: 30px;
+  }
+  .one-country__pic--flag {
+    width: 40vw;
+    height: 20vh;
+  }
+  .one-country__pic--coatOfArms {
+    width: 40vw;
+    height: 40vh;
+  }
+  .one-country__item-title {
+    font-style: italic;
+    text-decoration: underline;
+  }
+  .one-country__item-info {
+    color: rgb(68, 128, 0);
+  }
