@@ -9,7 +9,7 @@ import {
 
 type Prop = { setActive: React.Dispatch<React.SetStateAction<boolean>> };
 
-function SigninForm({ setActive }: Prop) {
+function SignInForm({ setActive }: Prop) {
   const dispatch = useAppDispatch();
   const [loginErr, setLoginErr] = useState('');
   const [loginValue, setLoginValue] = useState('');
@@ -66,4 +66,4 @@ function SigninForm({ setActive }: Prop) {
   );
 }
 
-export default SigninForm;
+export default SignInForm;
