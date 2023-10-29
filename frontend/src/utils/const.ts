@@ -6,7 +6,7 @@ export const FAVORITES = '/favorites';
 export const HISTORY = '/history';
 
 // Limit pagination
-export const LIMIT = Number(process.env.LIMIT) || 20;
+export const LIMIT = Number(process.env.REACT_APP_LIMIT) || 20;
 
 export const INPUT_DELAY = 500; // delay in ms
 export const SECRET_TOKEN = process.env.REACT_APP_SECRET;
