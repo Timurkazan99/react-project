@@ -9,7 +9,7 @@ function useUpdateHistory() {
   const { login } = useAppSelector(getUser);
   const auth = useGetAuth();
 
-  return (search: string, type: string) => {
+  return (type: string, search: string) => {
     if (auth) {
       const newValue = {
         type,
