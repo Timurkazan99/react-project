@@ -5,7 +5,7 @@ import { SearchSelectTypes } from '../../types';
 
 function HistoryItem(props: Props) {
   const { type, search, timestamp } = props;
-  const date = new Date(timestamp * 1000).toLocaleString('ru-RU');
+  const date = new Date(timestamp).toLocaleString('ru-RU');
   const key = getEnumKeyByString(SearchSelectTypes, type);
 
   return (

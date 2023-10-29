@@ -1,26 +1,17 @@
 import { createSearchParams, useNavigate } from 'react-router-dom';
-import { addHistory, useAppDispatch } from '../../../store';
 import { SEARCH } from '../../../utils';
 import { useSearchContext } from '../SearchContext';
 import UseGetSearchParams from '../../../hooks/useGetSearchParams';
-import useGetAuth from '../../../hooks/useGetAuth';
+import useUpdateHistory from '../../../hooks/useUpdateHistory';
 
 function SearchSubmit() {
   const { limit } = UseGetSearchParams();
-  const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-
   const { search, type } = useSearchContext();
-  const auth = useGetAuth();
+  const navigate = useNavigate();
+  const updateHistory = useUpdateHistory();
 
   const submitHandler = () => {
-    if (auth) {
-      dispatch(addHistory({
-        type,
-        search,
-        timestamp: Date.now(),
-      }));
-    }
+    updateHistory(type, search);
 
     navigate({
       pathname: SEARCH,
