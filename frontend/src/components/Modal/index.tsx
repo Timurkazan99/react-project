@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
-  closeModal, getModalState, useAppDispatch, useAppSelector,
+  closeModal, getModal, useAppDispatch, useAppSelector,
 } from '../../store';
 import Portal from '../Portal';
 import modalPages from './ModalPages';
 import './Modal.scss';
 
-function Modal2() {
+function Modal() {
   const location = useLocation();
   const dispatch = useAppDispatch();
-  const name = useAppSelector(getModalState);
+  const name = useAppSelector(getModal);
   useEffect(() => {
     dispatch(closeModal());
   }, [location]);
@@ -37,4 +37,4 @@ function Modal2() {
   );
 }
 
-export default Modal2;
+export default Modal;

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { validateLogin, validatePassword, validateRepeatPass } from '../../utils/validate';
 import isUserExist from '../../utils/isUserExist';
-import { closeModal, setUser, useAppDispatch } from '../../store';
+import {
+  closeModal, openModal, setUser, useAppDispatch,
+} from '../../store';
 import Input from '../Input';
 import { setRegistration } from '../../utils';
 import './SignUp.scss';
@@ -31,7 +33,7 @@ function SignUp() {
       setRepeatErr,
       setRepeatPass,
     });
-    if (!isValidLogin || !isValidPass || !isValidRepeatPass) {
+    if (!(isValidLogin && isValidPass && isValidRepeatPass)) {
       return null;
     }
     if (isUserExist(loginValue)) {
@@ -76,6 +78,13 @@ function SignUp() {
         type="button"
       >
         SignUp
+      </button>
+      <button
+        type="button"
+        className="signup__button_redirect"
+        onClick={() => dispatch(openModal('signin'))}
+      >
+        authorization
       </button>
     </div>
   );

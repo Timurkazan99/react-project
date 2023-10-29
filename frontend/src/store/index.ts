@@ -21,13 +21,13 @@ export { fetchFavorites };
 
 // userReducer
 import setUser from './thunks/user';
-import getModalState from './selectors/modalSelector';
+import getModal from './selectors/modalSelector';
 export { setUser };
 export { deleteUser } from './reducers/userSlice';
 export { getUser, getIsAuth } from './selectors/userSelector';
 
 // modalReducer
-export { getModalState };
+export { getModal };
 export {closeModal, openModal } from './reducers/modalSlice';
 
 // redux

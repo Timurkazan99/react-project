@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-type ModalComponents = 'signin' | 'signup';
-const initialState = '';
+type ModalNames = 'signin' | 'signup';
+const initialState: string = '';
 
 export const modalSlice = createSlice({
   name: 'modal',
@@ -10,7 +10,7 @@ export const modalSlice = createSlice({
     closeModal() {
       return '';
     },
-    openModal(state, action: PayloadAction<ModalComponents>) {
+    openModal(state, action: PayloadAction<ModalNames>) {
       return action.payload;
     },
   },

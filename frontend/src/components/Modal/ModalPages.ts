@@ -1,5 +1,5 @@
-import SignIn from '../SignIn';
-import SignUp from '../SignUp';
+import SignIn from '../SignInForm';
+import SignUp from '../SignUpForm';
 
 const modalPages = {
   signin: SignIn,

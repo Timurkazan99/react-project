@@ -5,7 +5,7 @@ import isCorrectPswd from '../../utils/isCorrectPswd';
 import setSession from '../../utils/setSession';
 import {
   closeModal,
-  fetchFavorites, fetchHistory, setUser, useAppDispatch,
+  fetchFavorites, fetchHistory, openModal, setUser, useAppDispatch,
 } from '../../store';
 import './SignIn.scss';
 
@@ -61,6 +61,13 @@ function SignIn() {
         type="button"
       >
         SignIn
+      </button>
+      <button
+        type="button"
+        onClick={() => dispatch(openModal('signup'))}
+        className="signin__button_redirect"
+      >
+        registration
       </button>
     </div>
   );
