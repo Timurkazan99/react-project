@@ -15,7 +15,7 @@ export { getAllHistory };
 // favoriteReducer
 import getFavoriteCountries from './selectors/favoriteSelector';
 export { getFavoriteCountries };
-export { addFavoriteCountry, setFavoriteCountry } from './reducers/favoriteSlice';
+export { addFavoriteCountry, setFavoriteCountry, deleteFavoriteCountry } from './reducers/favoriteSlice';
 import fetchFavorites from './thunks/favorites';
 export { fetchFavorites };
 
