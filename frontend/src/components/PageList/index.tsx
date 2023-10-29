@@ -8,7 +8,7 @@ function PageList() {
 
   const [activePage, lastPage, limit, pages] = usePage(searchParams);
 
-  if (lastPage === 1) {
+  if (lastPage <= 1) {
     return null;
   }
 

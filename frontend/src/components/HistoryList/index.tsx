@@ -14,6 +14,12 @@ function HistoryList() {
     />
   ));
 
+  if (items.length === 0) {
+    return (
+      <div>List of history is empty</div>
+    );
+  }
+
   return (
     <div className="history__container">
       <div>
