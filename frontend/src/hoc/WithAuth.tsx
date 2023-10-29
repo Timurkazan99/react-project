@@ -1,7 +1,7 @@
 import { Attributes, ComponentType, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  openModal, useAppDispatch,
+  getIsAuth, useAppSelector,
 } from '../store';
 import { MAIN } from '../utils';
 
@@ -9,14 +9,12 @@ function WithAuth <T extends Attributes>(
   WrappedComponent: ComponentType<T>,
 ) {
   function ComponentWithAuth(props: T) {
-    const dispatch = useAppDispatch();
-    const isAuth = localStorage.getItem('sessionStorage');
+    const isAuth = useAppSelector(getIsAuth);
     const navigate = useNavigate();
 
     useEffect(() => {
       if (!isAuth) {
-        navigate(MAIN);
-        dispatch(openModal('SIGNIN'));
+        navigate(MAIN, { state: { modalOpen: true }, replace: true });
       }
     }, [isAuth]);
 
