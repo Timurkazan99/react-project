@@ -8,6 +8,12 @@ function CountryList() {
 
   const items = useAppSelector((state) => getCountriesPaginat(state, page, limit));
 
+  if (items.length === 0) {
+    return (
+      <div>List of history is empty</div>
+    );
+  }
+
   // eslint-disable-next-line react/jsx-props-no-spreading
   const itemsComponents = items.map((item) => (<CountryItem key={item.cca3} {...item} />));
 
