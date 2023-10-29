@@ -59,3 +59,11 @@ export interface CountryState {
 }
 
 export type FavoriteState = string[];
+
+export enum ModalStateTypes {
+  SIGNIN,
+  SIGNUP,
+  CLOSE,
+}
+
+export type ModalStateKeys = keyof typeof ModalStateTypes;

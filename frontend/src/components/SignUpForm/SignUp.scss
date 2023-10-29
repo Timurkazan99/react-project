@@ -1,22 +1,8 @@
-.signup__button {
-  padding: 0 10px;
-  font-size: 15px;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.8;
-  }
-  &:active {
-    background-color: rgba(210, 210, 210, 0.577);
-  }
-}
-
 .signup__form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 50px 50px 20px 50px;
 }
 
 .signup__formbutton_submit {
@@ -35,6 +21,18 @@
   &:active {
     background-color: #8dafea;
   }
+}
+
+.signup__button_redirect {
+   border: none;
+   background-color: transparent;
+   cursor: pointer;
+   margin-top: 30px;
+   align-self: self-end;
+   transition: color 0.1s;
+   &:hover {
+    color: #176cffdc;
+   }
 }
 
 .signup__title {

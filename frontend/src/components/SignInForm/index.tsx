@@ -4,12 +4,12 @@ import Input from '../Input';
 import isCorrectPswd from '../../utils/isCorrectPswd';
 import setSession from '../../utils/setSession';
 import {
-  fetchFavorites, fetchHistory, setUser, useAppDispatch,
+  closeModal,
+  fetchFavorites, fetchHistory, openModal, setUser, useAppDispatch,
 } from '../../store';
+import './SignIn.scss';
 
-type Prop = { setActive: React.Dispatch<React.SetStateAction<boolean>> };
-
-function SignInForm({ setActive }: Prop) {
+function SignIn() {
   const dispatch = useAppDispatch();
   const [loginErr, setLoginErr] = useState('');
   const [loginValue, setLoginValue] = useState('');
@@ -31,7 +31,7 @@ function SignInForm({ setActive }: Prop) {
     dispatch(setUser());
     dispatch(fetchHistory());
     dispatch(fetchFavorites());
-    setActive(false);
+    dispatch(closeModal());
     return null;
   };
 
@@ -62,8 +62,15 @@ function SignInForm({ setActive }: Prop) {
       >
         SignIn
       </button>
+      <button
+        type="button"
+        onClick={() => dispatch(openModal('SIGNUP'))}
+        className="signin__button_redirect"
+      >
+        registration
+      </button>
     </div>
   );
 }
 
-export default SignInForm;
+export default SignIn;

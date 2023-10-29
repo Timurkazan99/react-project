@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { validateLogin, validatePassword, validateRepeatPass } from '../../utils/validate';
 import isUserExist from '../../utils/isUserExist';
-import { setUser, useAppDispatch } from '../../store';
+import {
+  closeModal, openModal, setUser, useAppDispatch,
+} from '../../store';
 import Input from '../Input';
 import { setRegistration } from '../../utils';
+import './SignUp.scss';
 
-type Prop = { setActive: React.Dispatch<React.SetStateAction<boolean>> };
-
-function SignUpForm({ setActive }: Prop) {
+function SignUp() {
   const dispatch = useAppDispatch();
   const [loginErr, setLoginErr] = useState('');
   const [loginValue, setLoginValue] = useState('');
@@ -32,7 +33,7 @@ function SignUpForm({ setActive }: Prop) {
       setRepeatErr,
       setRepeatPass,
     });
-    if (!isValidLogin || !isValidPass || !isValidRepeatPass) {
+    if (!(isValidLogin && isValidPass && isValidRepeatPass)) {
       return null;
     }
     if (isUserExist(loginValue)) {
@@ -41,7 +42,7 @@ function SignUpForm({ setActive }: Prop) {
     }
     await setRegistration(loginValue, passValue);
     dispatch(setUser());
-    setActive(false);
+    dispatch(closeModal());
     return null;
   };
 
@@ -78,8 +79,15 @@ function SignUpForm({ setActive }: Prop) {
       >
         SignUp
       </button>
+      <button
+        type="button"
+        className="signup__button_redirect"
+        onClick={() => dispatch(openModal('SIGNIN'))}
+      >
+        authorization
+      </button>
     </div>
   );
 }
 
-export default SignUpForm;
+export default SignUp;

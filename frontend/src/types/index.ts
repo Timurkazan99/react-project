@@ -9,3 +9,4 @@ export type {
 } from './types';
 
 export { SearchSelectTypes, type SearchSelectKeys } from './SearchSelectTypes';
+export { ModalStateTypes, type ModalStateKeys } from './types';

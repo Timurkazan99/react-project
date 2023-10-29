@@ -1,22 +1,8 @@
-.signin__button {
-    padding: 0 10px;
-    font-size: 15px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    &:hover {
-      opacity: 0.8;
-    }
-    &:active {
-      background-color: rgba(210, 210, 210, 0.577);
-    }
-  }
-  
   .signin__form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 50px 30px 20px 30px;
   }
   
   .signin__formbutton_submit {
@@ -28,7 +14,7 @@
     background-color: #03b16b;
     font-size: 20px;
     cursor: pointer;
-    transition: background-color 0.1s;
+    transition: background-color 0.2s;
     &:hover {
       background-color:   #1a875be0;
     }
@@ -36,6 +22,18 @@
       background-color:  #03b16b;
     }
   }
+
+  .signin__button_redirect {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-top: 30px;
+    align-self: self-end;
+    transition: color 0.1s;
+    &:hover {
+     color: #1a875be0;
+    }
+ }
   
   .signin__title {
     font-size: 24px;
