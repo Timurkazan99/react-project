@@ -1,7 +1,9 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Country, CountryState, FullCountry } from '../../types';
-import { fetchAllCountry, fetchFavoritesCountries, fetchOneCountry } from '../thunks/country';
+import {
+  fetchAllCountry, fetchFavoritesCountries, fetchOneCountry, fetchSearchedCountries,
+} from '../thunks/country';
 import { PayloadActionWithError } from '../../types/types';
 
 const initialState: CountryState = {
@@ -49,6 +51,18 @@ export const countrySlice = createSlice({
       state.AllCountries = action.payload;
     },
     [fetchFavoritesCountries.rejected.type]: (state, action: PayloadActionWithError) => {
+      state.isLoading = false;
+      state.error = action.error;
+    },
+    [fetchSearchedCountries.pending.type]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchSearchedCountries.fulfilled.type]: (state, action: PayloadAction<Country[]>) => {
+      state.isLoading = false;
+      state.error = '';
+      state.AllCountries = action.payload;
+    },
+    [fetchSearchedCountries.rejected.type]: (state, action: PayloadActionWithError) => {
       state.isLoading = false;
       state.error = action.error;
     },

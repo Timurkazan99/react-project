@@ -13,8 +13,8 @@ export const getAll = async (): Promise<Country[]> => {
   return response.data.map(transformCountry);
 };
 
-export const getSearchedCountries = async (service: string, search: string): Promise<Country[]> => {
-  const response = await axios.get(`https://restcountries.com/v3.1/${service}/${search}`, {
+export const getSearchedCountries = async (type: string, search: string): Promise<Country[]> => {
+  const response = await axios.get(`https://restcountries.com/v3.1/${type}/${search}`, {
     params: { fields: 'cca3,name,capital,population,flags,coatOfArms' },
   });
   return response.data.map(transformCountry);

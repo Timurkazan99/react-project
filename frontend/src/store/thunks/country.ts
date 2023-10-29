@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getAll, getById, getFavoritesCountries } from '../../API';
+import {
+  getAll, getById, getFavoritesCountries, getSearchedCountries,
+} from '../../API';
 
 export const fetchAllCountry = createAsyncThunk(
   'country/fetchAll',
@@ -22,6 +24,15 @@ export const fetchFavoritesCountries = createAsyncThunk(
   async (_, { getState }) => {
     const { favorite } = getState() as { favorite: string[] };
     const data = await getFavoritesCountries(favorite);
+    return data;
+  },
+);
+
+export const fetchSearchedCountries = createAsyncThunk(
+  'country/fetchSearchedCountries',
+  async (params: { type: string, search: string }) => {
+    const { type, search } = params;
+    const data = await getSearchedCountries(type, search);
     return data;
   },
 );
