@@ -20,7 +20,7 @@ function WithPagination <T extends Attributes>(
         prev.set('limit', String(limit));
         return prev;
       }, { replace: true });
-    }, []);
+    }, [searchParams]);
 
     return (
       <WrappedComponent {...(props as T)} />
