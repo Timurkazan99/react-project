@@ -82,7 +82,7 @@ function SignUp() {
       <button
         type="button"
         className="signup__button_redirect"
-        onClick={() => dispatch(openModal('signin'))}
+        onClick={() => dispatch(openModal('SIGNIN'))}
       >
         authorization
       </button>

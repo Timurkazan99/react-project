@@ -1,17 +1,17 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { ModalStateKeys } from '../../types';
 
-type ModalNames = 'signin' | 'signup';
-const initialState: string = '';
+const initialState: ModalStateKeys = 'CLOSE';
 
 export const modalSlice = createSlice({
   name: 'modal',
-  initialState,
+  initialState: initialState as ModalStateKeys,
   reducers: {
     closeModal() {
-      return '';
+      return 'CLOSE' as ModalStateKeys;
     },
-    openModal(state, action: PayloadAction<ModalNames>) {
-      return action.payload;
+    openModal(state, action: PayloadAction<Exclude<ModalStateKeys, 'CLOSE'>>) {
+      return action.payload as ModalStateKeys;
     },
   },
 });

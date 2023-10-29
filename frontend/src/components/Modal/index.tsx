@@ -15,10 +15,10 @@ function Modal() {
     dispatch(closeModal());
   }, [location]);
 
-  if (!name) {
+  const Component = modalPages[name];
+  if (!Component) {
     return null;
   }
-  const Component = modalPages[name];
   return (
     <Portal>
       <div className="modal__container">

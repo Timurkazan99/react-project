@@ -11,14 +11,14 @@ function NavAuth() {
       <button
         className="sign__button"
         type="button"
-        onClick={() => dispatch(openModal('signin'))}
+        onClick={() => dispatch(openModal('SIGNIN'))}
       >
         SignIn
       </button>
       <button
         className="sign__button"
         type="button"
-        onClick={() => dispatch(openModal('signup'))}
+        onClick={() => dispatch(openModal('SIGNUP'))}
       >
         SignIn
       </button>
