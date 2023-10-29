@@ -54,7 +54,6 @@ export interface UserState {
 export interface CountryState {
   oneCountry: FullCountry | null,
   AllCountries: Country[],
-  SearchedCountries: Country[],
   isLoading: boolean,
   error: string,
 }
