@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
-  closeModal, getModal, useAppDispatch, useAppSelector,
+  closeModal, getModal, openModal, useAppDispatch, useAppSelector,
 } from '../../store';
 import Portal from '../Portal';
 import modalPages from './ModalPages';
@@ -12,6 +12,10 @@ function Modal() {
   const dispatch = useAppDispatch();
   const name = useAppSelector(getModal);
   useEffect(() => {
+    if (location.state?.modalOpen) {
+      dispatch(openModal('SIGNIN'));
+      return;
+    }
     dispatch(closeModal());
   }, [location]);
 
