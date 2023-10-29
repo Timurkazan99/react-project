@@ -1,7 +1,7 @@
 import { Attributes, ComponentType, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  getIsAuth, openModal, useAppDispatch, useAppSelector,
+  openModal, useAppDispatch,
 } from '../store';
 import { MAIN } from '../utils';
 
@@ -10,7 +10,7 @@ function WithAuth <T extends Attributes>(
 ) {
   function ComponentWithAuth(props: T) {
     const dispatch = useAppDispatch();
-    const isAuth = useAppSelector(getIsAuth);
+    const isAuth = localStorage.getItem('sessionStorage');
     const navigate = useNavigate();
 
     useEffect(() => {
