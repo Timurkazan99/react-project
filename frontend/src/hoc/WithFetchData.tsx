@@ -1,6 +1,8 @@
 import { Attributes, ComponentType, useEffect } from 'react';
 import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { useAppDispatch, useAppSelector } from '../store';
+import {
+  useAppDispatch, useAppSelector,
+} from '../store';
 import Loader from '../components/Loader';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,16 +14,21 @@ function WithFetchData <T extends Attributes>(
 ) {
   function ComponentWithFetchData(props: T) {
     const dispatch = useAppDispatch();
-    const isLoading = useAppSelector((state) => state.country.isLoading);
+    const countryIsLoading = useAppSelector((state) => state.country.isLoading);
+    const userIsLoading = useAppSelector((state) => state.user.isLoading);
     const action = useAction();
 
     useEffect(() => {
-      const promise = dispatch(action);
+      if (!userIsLoading) {
+        const promise = dispatch(action);
 
-      return () => promise.abort();
-    }, []);
+        return () => promise.abort();
+      }
 
-    if (isLoading) {
+      return () => {};
+    }, [userIsLoading]);
+
+    if (countryIsLoading) {
       return (
         <Loader />
       );

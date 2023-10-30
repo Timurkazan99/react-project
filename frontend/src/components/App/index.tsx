@@ -8,10 +8,6 @@ import Modal from '../Modal';
 function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const token = localStorage.getItem('sessionStorage');
-    if (!token) {
-      return;
-    }
     dispatch(setUser());
   }, []);
 

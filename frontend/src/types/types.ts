@@ -49,6 +49,7 @@ export interface History {
 export interface UserState {
   login: string
   password: string
+  isLoading: boolean
 }
 
 export interface CountryState {

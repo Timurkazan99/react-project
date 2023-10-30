@@ -4,7 +4,8 @@ export type {
   History,
   UserState,
   CountryState,
+  ModalStateKeys
 } from './types';
 
 export { SearchSelectTypes, type SearchSelectKeys } from './SearchSelectTypes';
-export { ModalStateTypes, type ModalStateKeys } from './types';
+export { ModalStateTypes } from './types';

@@ -9,7 +9,7 @@ import { PayloadActionWithError } from '../../types/types';
 const initialState: CountryState = {
   oneCountry: null,
   AllCountries: [],
-  isLoading: false,
+  isLoading: true,
   error: '',
 };
 
