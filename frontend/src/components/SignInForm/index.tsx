@@ -3,10 +3,7 @@ import isUserExist from '../../utils/isUserExist';
 import Input from '../Input';
 import isCorrectPswd from '../../utils/isCorrectPswd';
 import setSession from '../../utils/setSession';
-import {
-  closeModal,
-  fetchFavorites, openModal, setUser, useAppDispatch,
-} from '../../store';
+import { closeModal, openModal, setUser, useAppDispatch } from '../../store';
 import './SignIn.scss';
 
 function SignIn() {
@@ -29,7 +26,6 @@ function SignIn() {
     }
     await setSession(loginValue);
     dispatch(setUser());
-    dispatch(fetchFavorites());
     dispatch(closeModal());
     return null;
   };

@@ -1,6 +1,4 @@
-import {
-  setFavoriteCountry, deleteUser, getUser, useAppDispatch, useAppSelector,
-} from '../../store';
+import { deleteUser, getUser, useAppDispatch, useAppSelector } from '../../store';
 import IconExit from '../Icons/IconExit';
 import IconPerson from '../Icons/IconPerson';
 
@@ -8,7 +6,6 @@ function NavUser() {
   const dispatch = useAppDispatch();
   const user = useAppSelector(getUser);
   const handleClick = () => {
-    dispatch(setFavoriteCountry([]));
     dispatch(deleteUser());
     localStorage.removeItem('sessionStorage');
   };

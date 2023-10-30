@@ -58,8 +58,6 @@ export interface CountryState {
   error: string,
 }
 
-export type FavoriteState = string[];
-
 export enum ModalStateTypes {
   SIGNIN,
   SIGNUP,

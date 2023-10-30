@@ -25,7 +25,6 @@ export const fetchFavoritesCountries = createAsyncThunk(
   async (_, { getState }) => {
     const { user } = getState() as { user: { login: string } };
     const favoriteCountries = getCountriesFromLocalStorage(user.login);
-    if (!favoriteCountries) return [];
     const data = await getFavoritesCountries(favoriteCountries);
     return data;
   },

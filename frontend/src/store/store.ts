@@ -1,13 +1,11 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import country from './reducers/countrySlice';
 import user from './reducers/userSlice';
-import favorite from './reducers/favoriteSlice';
+import country from './reducers/countrySlice';
 import modal from './reducers/modalSlice';
 
 const rootReducer = combineReducers({
   country,
   user,
-  favorite,
   modal,
 });
 

@@ -5,19 +5,6 @@ export {
   getAllCoutries, getCountriesPaginat, getOneCountry, getMaxPage, getError,
 } from './selectors/countrySelector';
 
-// // historyReducer
-// import fetchHistory from './thunks/history';
-// export { fetchHistory };
-// export { setHistory, addHistory } from './reducers/historySlice';
-// import getAllHistory from './selectors/historySelector';
-// export { getAllHistory };
-//
-// favoriteReducer
-export { getFavoriteCountries, getFavoriteCca3 } from './selectors/favoriteSelector';
-export { addFavoriteCountry, setFavoriteCountry, deleteFavoriteCountry } from './reducers/favoriteSlice';
-import fetchFavorites from './thunks/favorites';
-export { fetchFavorites };
-
 // userReducer
 import setUser from './thunks/user';
 import getModal from './selectors/modalSelector';

@@ -2,9 +2,7 @@ import { useEffect } from 'react';
 import NavBar from '../Navbar';
 import AppRouter from '../AppRouter';
 import '../../styles/style.scss';
-import {
-  fetchFavorites, setUser, useAppDispatch,
-} from '../../store';
+import { setUser, useAppDispatch } from '../../store';
 import Modal from '../Modal';
 
 function App() {
@@ -15,7 +13,6 @@ function App() {
       return;
     }
     dispatch(setUser());
-    dispatch(fetchFavorites());
   }, []);
 
   return (
