@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   getAll, getById, getFavoritesCountries, getSearchedCountries,
 } from '../../API';
+import { getCountriesFromLocalStorage } from '../../utils/favoriteHelper';
 
 export const fetchAllCountry = createAsyncThunk(
   'country/fetchAll',
@@ -22,8 +23,10 @@ export const fetchOneCountry = createAsyncThunk(
 export const fetchFavoritesCountries = createAsyncThunk(
   'favorite/fetchFavoritesCountries',
   async (_, { getState }) => {
-    const { favorite } = getState() as { favorite: string[] };
-    const data = await getFavoritesCountries(favorite);
+    const { user } = getState() as { user: { login: string } };
+    const favoriteCountries = getCountriesFromLocalStorage(user.login);
+    if (!favoriteCountries) return [];
+    const data = await getFavoritesCountries(favoriteCountries);
     return data;
   },
 );
