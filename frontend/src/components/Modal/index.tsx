@@ -11,12 +11,14 @@ function Modal() {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const name = useAppSelector(getModal);
+
   useEffect(() => {
     if (location.state?.modalOpen) {
       dispatch(openModal('SIGNIN'));
-      return;
+      window.history.replaceState({}, document.title);
+    } else if (name !== 'CLOSE') {
+      dispatch(closeModal());
     }
-    dispatch(closeModal());
   }, [location]);
 
   const Component = modalPages[name];
