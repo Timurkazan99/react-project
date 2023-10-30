@@ -1,7 +1,9 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
 export interface PayloadActionWithError extends PayloadAction {
-  error: string
+  error: {
+    message: string
+  }
 }
 
 export interface Image {
