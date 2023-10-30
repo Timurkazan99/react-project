@@ -13,9 +13,8 @@ import getAllHistory from './selectors/historySelector';
 export { getAllHistory };
 
 // favoriteReducer
-import getFavoriteCountries from './selectors/favoriteSelector';
-export { getFavoriteCountries };
-export { addFavoriteCountry, setFavoriteCountry } from './reducers/favoriteSlice';
+export { getFavoriteCountries, getFavoriteCca3 } from './selectors/favoriteSelector';
+export { addFavoriteCountry, setFavoriteCountry, deleteFavoriteCountry } from './reducers/favoriteSlice';
 import fetchFavorites from './thunks/favorites';
 export { fetchFavorites };
 
