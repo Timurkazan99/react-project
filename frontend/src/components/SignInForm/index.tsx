@@ -5,7 +5,7 @@ import isCorrectPswd from '../../utils/isCorrectPswd';
 import setSession from '../../utils/setSession';
 import {
   closeModal,
-  fetchFavorites, fetchHistory, openModal, setUser, useAppDispatch,
+  fetchFavorites, openModal, setUser, useAppDispatch,
 } from '../../store';
 import './SignIn.scss';
 
@@ -29,7 +29,6 @@ function SignIn() {
     }
     await setSession(loginValue);
     dispatch(setUser());
-    dispatch(fetchHistory());
     dispatch(fetchFavorites());
     dispatch(closeModal());
     return null;

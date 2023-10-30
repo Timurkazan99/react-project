@@ -3,7 +3,7 @@ import NavBar from '../Navbar';
 import AppRouter from '../AppRouter';
 import '../../styles/style.scss';
 import {
-  fetchFavorites, fetchHistory, setUser, useAppDispatch,
+  fetchFavorites, setUser, useAppDispatch,
 } from '../../store';
 import Modal from '../Modal';
 
@@ -15,7 +15,6 @@ function App() {
       return;
     }
     dispatch(setUser());
-    dispatch(fetchHistory());
     dispatch(fetchFavorites());
   }, []);
 

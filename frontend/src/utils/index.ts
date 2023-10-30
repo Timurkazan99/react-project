@@ -16,3 +16,5 @@ export { getErrorMessage };
 export { getEnumKeyByString };
 export { getPageNumbers };
 export { setRegistration };
+
+export { addHistory, getHistory } from './historyHelpers';

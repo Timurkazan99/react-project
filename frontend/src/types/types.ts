@@ -44,8 +44,6 @@ export interface History {
   timestamp: number
 }
 
-export type HistoryState = History[];
-
 export interface UserState {
   login: string
   password: string
@@ -67,8 +65,3 @@ export enum ModalStateTypes {
 }
 
 export type ModalStateKeys = keyof typeof ModalStateTypes;
-
-export type HistoryPayload = {
-  login: string,
-  history: History
-};

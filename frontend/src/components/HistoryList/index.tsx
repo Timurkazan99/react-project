@@ -1,10 +1,12 @@
 import HistoryItem from '../HistoryItem';
-import { useAppSelector } from '../../store';
-import getAllHistory from '../../store/selectors/historySelector';
+import {getUser, useAppSelector} from '../../store';
+import { getHistory } from '../../utils';
 import './HistoryList.scss';
 
 function HistoryList() {
-  const history = useAppSelector(getAllHistory);
+  const { login } = useAppSelector(getUser);
+  const history = getHistory(login);
+
   const items = history.map((item) => (
     <HistoryItem
       key={item.timestamp}
