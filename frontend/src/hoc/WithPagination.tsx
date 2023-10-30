@@ -2,7 +2,7 @@ import { Attributes, ComponentType, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { LIMIT } from '../utils';
 
-function WithPagination<T extends Attributes>(
+function WithPagination <T extends Attributes>(
   WrappedComponent: ComponentType<T>,
 ) {
   function ComponentWithPagination(props: T) {

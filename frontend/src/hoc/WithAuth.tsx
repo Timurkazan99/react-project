@@ -1,15 +1,12 @@
 import { Attributes, ComponentType, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  getIsAuth, useAppSelector,
-} from '../store';
 import { MAIN } from '../utils';
 
 function WithAuth <T extends Attributes>(
   WrappedComponent: ComponentType<T>,
 ) {
   function ComponentWithAuth(props: T) {
-    const isAuth = useAppSelector(getIsAuth);
+    const isAuth = localStorage.getItem('sessionStorage');
     const navigate = useNavigate();
 
     useEffect(() => {
