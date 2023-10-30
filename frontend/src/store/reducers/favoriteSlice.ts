@@ -8,7 +8,7 @@ const initialState: FavoriteState = [];
 type FavoritePayload = {
   login: string,
   cca3: string
-}
+};
 
 export const favoriteSlice = createSlice({
   name: 'favorite',
@@ -18,16 +18,16 @@ export const favoriteSlice = createSlice({
       return action.payload;
     },
     addFavoriteCountry(state, action: PayloadAction<FavoritePayload>) {
-      const { login, cca3 } = action.payload
+      const { login, cca3 } = action.payload;
       const newState = state.concat(cca3);
-      localStorage.setItem(`${login}_favorite`, newState)
-      return newState
+      localStorage.setItem(`${login}_favorite`, JSON.stringify(newState));
+      return newState;
     },
     deleteFavoriteCountry(state, action: PayloadAction<FavoritePayload>) {
-      const { login, cca3 } = action.payload
-      const newState = state.filter(item => item !== cca3);
-      localStorage.setItem(`${login}_favorite`, newState)
-      return newState
+      const { login, cca3 } = action.payload;
+      const newState = state.filter((item) => item !== cca3);
+      localStorage.setItem(`${login}_favorite`, JSON.stringify(newState));
+      return newState;
     },
   },
   extraReducers: {
@@ -36,4 +36,6 @@ export const favoriteSlice = createSlice({
 });
 
 export default favoriteSlice.reducer;
-export const { setFavoriteCountry, addFavoriteCountry, deleteFavoriteCountry } = favoriteSlice.actions;
+export const {
+  setFavoriteCountry, addFavoriteCountry, deleteFavoriteCountry,
+} = favoriteSlice.actions;

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchOneCountry, useAppDispatch, useAppSelector } from '../store';
-import { getIsAuth } from '../store';
+
 import FavoriteButton from '../components/FavoriteButton';
 
 import '../styles/OneCountry.scss';
@@ -12,8 +12,6 @@ function OneCountry() {
   const dispatch = useAppDispatch();
 
   const item = useAppSelector((state) => state.country.oneCountry);
-
-  const userExist = useAppSelector(getIsAuth)
 
   useEffect(() => {
     dispatch(fetchOneCountry(String(id)));
@@ -27,7 +25,7 @@ function OneCountry() {
 
   return (
     <div className="one-country">
-      { !userExist ? <FavoriteButton id={id}/> : null}
+      <FavoriteButton cca3={String(id)} />
       <img className="one-country__pic--flag" src={item.flags.png} alt={item.flags.alt} />
       <div>Information about country:</div>
       <div>
