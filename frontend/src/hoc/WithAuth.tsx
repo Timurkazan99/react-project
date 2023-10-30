@@ -1,19 +1,21 @@
 import { Attributes, ComponentType, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MAIN } from '../utils';
+import { getUser, useAppSelector } from '../store';
 
 function WithAuth <T extends Attributes>(
   WrappedComponent: ComponentType<T>,
 ) {
   function ComponentWithAuth(props: T) {
-    const isAuth = localStorage.getItem('sessionStorage');
+    const { login } = useAppSelector(getUser);
     const navigate = useNavigate();
 
     useEffect(() => {
+      const isAuth = localStorage.getItem('sessionStorage');
       if (!isAuth) {
         navigate(MAIN, { state: { modalOpen: true }, replace: true });
       }
-    }, [isAuth]);
+    }, [login]);
 
     // eslint-disable-next-line react/jsx-props-no-spreading
     return <WrappedComponent {...(props as T)} />;
