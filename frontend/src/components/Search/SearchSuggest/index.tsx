@@ -18,7 +18,6 @@ function SearchSuggest(props: Props) {
 
   const clickHandler = (event: MouseEvent<HTMLElement>) => {
     const { target } = event;
-    console.log(target instanceof HTMLAnchorElement);
     if (target instanceof HTMLAnchorElement) {
       updateHistory(type, search);
     }

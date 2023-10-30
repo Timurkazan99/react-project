@@ -6,6 +6,7 @@ export type {
   UserState,
   CountryState,
   FavoriteState,
+  HistoryPayload,
 } from './types';
 
 export { SearchSelectTypes, type SearchSelectKeys } from './SearchSelectTypes';

@@ -67,3 +67,8 @@ export enum ModalStateTypes {
 }
 
 export type ModalStateKeys = keyof typeof ModalStateTypes;
+
+export type HistoryPayload = {
+  login: string,
+  history: History
+};
