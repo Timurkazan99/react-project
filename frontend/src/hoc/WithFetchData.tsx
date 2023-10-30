@@ -1,16 +1,25 @@
-import { Attributes, ComponentType } from 'react';
-import { useAppSelector } from '../store';
+import { Attributes, ComponentType, useEffect } from 'react';
+import { AsyncThunkAction } from '@reduxjs/toolkit';
+import { useAppDispatch, useAppSelector } from '../store';
 import Loader from '../components/Loader';
 
-type UseFetchData = () => void;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type UseAction = () => AsyncThunkAction<any, any, any>;
 
 function WithFetchData <T extends Attributes>(
   WrappedComponent: ComponentType<T>,
-  useFetchData: UseFetchData,
+  useAction: UseAction,
 ) {
   function ComponentWithFetchData(props: T) {
+    const dispatch = useAppDispatch();
     const isLoading = useAppSelector((state) => state.country.isLoading);
-    useFetchData();
+    const action = useAction();
+
+    useEffect(() => {
+      const promise = dispatch(action);
+
+      return () => promise.abort();
+    }, []);
 
     if (isLoading) {
       return (

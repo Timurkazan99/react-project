@@ -1,16 +1,10 @@
-import { useEffect } from 'react';
 import Search from '../components/Search';
 import CountryList from '../components/CountryList';
 import PageList from '../components/PageList';
 import { WithPagination, WithFetchData } from '../hoc';
-import { fetchAllCountry, useAppDispatch } from '../store';
+import { fetchAllCountry } from '../store';
 
-const useFetch = () => {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(fetchAllCountry());
-  }, []);
-};
+const useAction = () => fetchAllCountry();
 
 function Main() {
   return (
@@ -22,4 +16,4 @@ function Main() {
   );
 }
 
-export default WithPagination(WithFetchData(Main, useFetch));
+export default WithPagination(WithFetchData(Main, useAction));

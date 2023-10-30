@@ -1,19 +1,15 @@
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  fetchOneCountry, useAppDispatch, useAppSelector,
+  fetchOneCountry, useAppSelector,
 } from '../store';
 import FavoriteButton from '../components/FavoriteButton';
 import { WithFetchData } from '../hoc';
 import '../styles/OneCountry.scss';
 
-const useFetch = () => {
+const useAction = () => {
   const { id } = useParams();
-  const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(fetchOneCountry(String(id)));
-  }, []);
+  return fetchOneCountry(String(id))
 };
 
 function OneCountry() {
@@ -72,4 +68,4 @@ function OneCountry() {
   );
 }
 
-export default WithFetchData(OneCountry, useFetch);
+export default WithFetchData(OneCountry, useAction);
