@@ -7,12 +7,12 @@ export {
 
 // userReducer
 import setUser from './thunks/user';
-import getModal from './selectors/modalSelector';
 export { setUser };
 export { deleteUser } from './reducers/userSlice';
-export { getUser, getIsAuth } from './selectors/userSelector';
+export { getUser } from './selectors/userSelector';
 
 // modalReducer
+import getModal from './selectors/modalSelector';
 export { getModal };
 export {closeModal, openModal } from './reducers/modalSlice';
 

@@ -1,12 +1,12 @@
 import {
-  getIsAuth, openModal, useAppDispatch, useAppSelector,
+  getUser, openModal, useAppDispatch, useAppSelector,
 } from '../../store';
 import NavUser from './NavUser';
 
 function NavAuth() {
-  const isAuth = useAppSelector(getIsAuth);
+  const { login } = useAppSelector(getUser);
   const dispatch = useAppDispatch();
-  return isAuth ? <NavUser /> : (
+  return login ? <NavUser /> : (
     <>
       <button
         className="sign__button"
