@@ -10,7 +10,7 @@ function CountryList() {
 
   if (items.length === 0) {
     return (
-      <div>List of history is empty</div>
+      <div>List of countries is empty</div>
     );
   }
 

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import SearchForm from '../components/Search';
 import CountryList from '../components/CountryList';
-import PageList from '../components/PageList/PageList';
+import PageList from '../components/PageList';
 import { WithPagination, WithFetchData } from '../hoc';
 import { fetchSearchedCountries, useAppDispatch } from '../store';
 import UseGetSearchParams from '../hooks/useGetSearchParams';
