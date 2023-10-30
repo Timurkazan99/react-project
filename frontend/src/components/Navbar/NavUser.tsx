@@ -1,4 +1,6 @@
-import { deleteUser, getUser, useAppDispatch, useAppSelector } from '../../store';
+import {
+  deleteUser, getUser, useAppDispatch, useAppSelector,
+} from '../../store';
 import IconExit from '../Icons/IconExit';
 import IconPerson from '../Icons/IconPerson';
 

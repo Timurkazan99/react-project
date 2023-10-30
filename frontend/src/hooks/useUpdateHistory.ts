@@ -11,7 +11,7 @@ function useUpdateHistory() {
         search,
         timestamp: Date.now(),
       };
-      addHistory(login, newValue)
+      addHistory(login, newValue);
     }
   };
 }

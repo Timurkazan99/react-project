@@ -20,4 +20,3 @@ export { getPageNumbers };
 export { setRegistration };
 export { addHistory, getHistory } from './historyHelpers';
 export { getCountriesFromLocalStorage, addFavoriteCountry, deleteFavoriteCountry };
-

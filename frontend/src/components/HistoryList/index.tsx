@@ -1,5 +1,5 @@
 import HistoryItem from '../HistoryItem';
-import {getUser, useAppSelector} from '../../store';
+import { getUser, useAppSelector } from '../../store';
 import { getHistory } from '../../utils';
 import './HistoryList.scss';
 

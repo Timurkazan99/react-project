@@ -9,7 +9,7 @@ import '../styles/OneCountry.scss';
 const useAction = () => {
   const { id } = useParams();
 
-  return fetchOneCountry(String(id))
+  return fetchOneCountry(String(id));
 };
 
 function OneCountry() {
