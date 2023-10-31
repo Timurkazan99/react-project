@@ -6,8 +6,8 @@ import { addFavoriteCountry, deleteFavoriteCountry, getCountriesFromLocalStorage
 
 function FavoriteButton({ cca3 }: Props) {
   const { login } = useAppSelector(getUser);
-  if (!login) return null;
   const [isFavorite, setIsFavorite] = useState(!getCountriesFromLocalStorage(login).includes(cca3));
+  if (!login) return null;
   const label = isFavorite ? 'Add to favorite' : 'Delete from favorite';
   const styles = isFavorite ? 'favorite-button__add' : 'favorite-button__delete';
 
