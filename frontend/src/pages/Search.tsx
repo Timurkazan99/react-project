@@ -1,17 +1,14 @@
-import { useEffect } from 'react';
 import SearchForm from '../components/Search';
 import CountryList from '../components/CountryList';
-import PageList from '../components/PageList/PageList';
+import PageList from '../components/PageList';
 import { WithPagination, WithFetchData } from '../hoc';
-import { fetchSearchedCountries, useAppDispatch } from '../store';
+import { fetchSearchedCountries } from '../store';
 import UseGetSearchParams from '../hooks/useGetSearchParams';
 
-const useFetch = () => {
+const useAction = () => {
   const { type, search } = UseGetSearchParams();
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(fetchSearchedCountries({ type, search }));
-  }, [type, search]);
+
+  return fetchSearchedCountries({ type, search });
 };
 
 function Search() {
@@ -24,4 +21,4 @@ function Search() {
   );
 }
 
-export default WithPagination(WithFetchData(Search, useFetch));
+export default WithPagination(WithFetchData(Search, useAction));

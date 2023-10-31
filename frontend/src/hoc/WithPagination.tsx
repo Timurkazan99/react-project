@@ -1,5 +1,5 @@
 import { Attributes, ComponentType, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { LIMIT } from '../utils';
 
 function WithPagination <T extends Attributes>(
@@ -7,6 +7,7 @@ function WithPagination <T extends Attributes>(
 ) {
   function ComponentWithPagination(props: T) {
     const [searchParams, setSearchParams] = useSearchParams();
+    const location = useLocation();
 
     useEffect(() => {
       let page = Number(searchParams.get('page'));
@@ -19,8 +20,8 @@ function WithPagination <T extends Attributes>(
         prev.set('page', String(page));
         prev.set('limit', String(limit));
         return prev;
-      }, { replace: true });
-    }, []);
+      }, { replace: true, state: location.state });
+    }, [searchParams]);
 
     return (
       <WrappedComponent {...(props as T)} />

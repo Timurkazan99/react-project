@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unused-prop-types */
-import { useState } from 'react';
+import { useState, ChangeEvent, FocusEvent } from 'react';
 import { IconEye, IconEyeClosed } from '../Icons';
 
 interface Props {
   error: string
   placeholder: string
   value: string
-  onChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
-  onFocus?: ({ target }: React.FocusEvent<HTMLInputElement>) => void
+  onChange: ({ target }: ChangeEvent<HTMLInputElement>) => void
+  onFocus?: ({ target }: FocusEvent<HTMLInputElement>) => void
   password: true
 }
 

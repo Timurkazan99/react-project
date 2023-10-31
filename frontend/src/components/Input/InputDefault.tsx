@@ -1,9 +1,11 @@
+import { ChangeEvent, FocusEvent } from 'react';
+
 interface Props {
   error?: string
   placeholder: string
   value: string
-  onFocus?: ({ target }: React.FocusEvent<HTMLInputElement>) => void
-  onChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
+  onFocus?: ({ target }: FocusEvent<HTMLInputElement>) => void
+  onChange: ({ target }: ChangeEvent<HTMLInputElement>) => void
 }
 
 function InputDefault(props: Props) {

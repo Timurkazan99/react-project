@@ -1,9 +1,11 @@
 import {
-  createContext, useContext, useMemo, useState,
+  createContext, useContext, useState,
 } from 'react';
 import { Context } from './type';
-import { getEnumKeyByString } from '../../../utils';
+import { getEnumKeyByString, INPUT_DELAY } from '../../../utils';
 import { Country, SearchSelectTypes, SearchSelectKeys } from '../../../types';
+import useDebounce from '../../../hooks/useDebounce';
+import { getSearchedCountries } from '../../../API';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const SearchContext = createContext<Context>({
@@ -29,19 +31,36 @@ const useGetContextValue = (initType: SearchSelectKeys, initStr: string) => {
   const [search, setSearch] = useState<string>(initStr);
   const [type, setType] = useState<SearchSelectKeys>(initType);
 
+  const getResults = useDebounce(async (bindType: SearchSelectKeys, bindSearch: string) => {
+    if (bindSearch) {
+      try {
+        const data = await getSearchedCountries(bindType, bindSearch);
+        setResults(data.slice(0, 5));
+      } catch (e) {
+        setResults([]);
+      }
+    }
+  }, INPUT_DELAY);
+
+  const setSearchWithSuggest = (str: string) => {
+    setSearch(str);
+    getResults(type, str);
+  };
+
   const setTypeWithCasting = (str: string) => {
     const newValue = getEnumKeyByString(SearchSelectTypes, str);
     setType(newValue);
+    getResults(newValue, search);
   };
 
-  return useMemo(() => ({
+  return {
     results,
     setResults,
     search,
-    setSearch,
+    setSearch: setSearchWithSuggest,
     type,
     setType: setTypeWithCasting,
-  }), [results, search, type]);
+  };
 };
 
 export { useSearchContext, SearchContext, useGetContextValue };

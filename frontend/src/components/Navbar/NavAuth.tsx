@@ -4,23 +4,23 @@ import {
 import NavUser from './NavUser';
 
 function NavAuth() {
-  const user = useAppSelector(getUser);
+  const { login } = useAppSelector(getUser);
   const dispatch = useAppDispatch();
-  return user.login ? <NavUser /> : (
+  return login ? <NavUser /> : (
     <>
       <button
         className="sign__button"
         type="button"
         onClick={() => dispatch(openModal('SIGNIN'))}
       >
-        SignIn
+        Sign in
       </button>
       <button
         className="sign__button"
         type="button"
         onClick={() => dispatch(openModal('SIGNUP'))}
       >
-        SignIn
+        Sign up
       </button>
     </>
   );

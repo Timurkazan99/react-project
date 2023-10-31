@@ -1,15 +1,9 @@
-import { useEffect } from 'react';
 import CountryList from '../components/CountryList';
 import PageList from '../components/PageList';
 import { WithPagination, WithFetchData, WithAuth } from '../hoc';
-import { fetchFavoritesCountries, useAppDispatch } from '../store';
+import { fetchFavoritesCountries } from '../store';
 
-const useFetch = () => {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(fetchFavoritesCountries());
-  }, []);
-};
+const useAction = () => fetchFavoritesCountries();
 
 function Favorites() {
   return (
@@ -20,4 +14,4 @@ function Favorites() {
   );
 }
 
-export default WithAuth(WithPagination(WithFetchData(Favorites, useFetch)));
+export default WithAuth(WithPagination(WithFetchData(Favorites, useAction)));

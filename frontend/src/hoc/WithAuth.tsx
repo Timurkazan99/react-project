@@ -1,20 +1,24 @@
-import { Attributes, ComponentType } from 'react';
-import { Navigate } from 'react-router-dom';
-import { SIGNIN } from '../utils';
-import { getIsAuth, useAppSelector } from '../store';
+import { Attributes, ComponentType, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { MAIN } from '../utils';
+import { getUser, useAppSelector } from '../store';
 
 function WithAuth <T extends Attributes>(
   WrappedComponent: ComponentType<T>,
 ) {
   function ComponentWithAuth(props: T) {
-    const isAuth = useAppSelector(getIsAuth);
+    const { login } = useAppSelector(getUser);
+    const navigate = useNavigate();
 
-    if (isAuth) {
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      return <WrappedComponent {...(props as T)} />;
-    }
+    useEffect(() => {
+      const isAuth = localStorage.getItem('sessionStorage');
+      if (!isAuth) {
+        navigate(MAIN, { state: { modalOpen: true }, replace: true });
+      }
+    }, [login]);
 
-    return <Navigate to={SIGNIN} replace />;
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    return <WrappedComponent {...(props as T)} />;
   }
 
   ComponentWithAuth.displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component';

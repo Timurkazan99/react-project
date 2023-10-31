@@ -9,7 +9,7 @@ import { PayloadActionWithError } from '../../types/types';
 const initialState: CountryState = {
   oneCountry: null,
   AllCountries: [],
-  isLoading: false,
+  isLoading: true,
   error: '',
 };
 
@@ -27,8 +27,10 @@ export const countrySlice = createSlice({
       state.AllCountries = action.payload;
     },
     [fetchAllCountry.rejected.type]: (state, action: PayloadActionWithError) => {
-      state.isLoading = false;
-      state.error = action.error;
+      if (action.error.message !== 'Aborted') {
+        state.isLoading = false;
+        state.error = action.error.message;
+      }
     },
     [fetchOneCountry.pending.type]: (state) => {
       state.isLoading = true;
@@ -39,8 +41,10 @@ export const countrySlice = createSlice({
       state.oneCountry = action.payload;
     },
     [fetchOneCountry.rejected.type]: (state, action: PayloadActionWithError) => {
-      state.isLoading = false;
-      state.error = action.error;
+      if (action.error.message !== 'Aborted') {
+        state.isLoading = false;
+        state.error = action.error.message;
+      }
     },
     [fetchFavoritesCountries.pending.type]: (state) => {
       state.isLoading = true;
@@ -51,8 +55,10 @@ export const countrySlice = createSlice({
       state.AllCountries = action.payload;
     },
     [fetchFavoritesCountries.rejected.type]: (state, action: PayloadActionWithError) => {
-      state.isLoading = false;
-      state.error = action.error;
+      if (action.error.message !== 'Aborted') {
+        state.isLoading = false;
+        state.error = action.error.message;
+      }
     },
     [fetchSearchedCountries.pending.type]: (state) => {
       state.isLoading = true;
@@ -63,8 +69,14 @@ export const countrySlice = createSlice({
       state.AllCountries = action.payload;
     },
     [fetchSearchedCountries.rejected.type]: (state, action: PayloadActionWithError) => {
-      state.isLoading = false;
-      state.error = action.error;
+      if (action.error.message !== 'Aborted') {
+        if (action.error.message !== 'Request failed with status code 404') {
+          state.error = action.error.message;
+        } else {
+          state.AllCountries = [];
+        }
+        state.isLoading = false;
+      }
     },
   },
 });

@@ -2,30 +2,17 @@
 // countryReducer
 export { fetchAllCountry, fetchOneCountry, fetchFavoritesCountries, fetchSearchedCountries } from './thunks/country';
 export {
-  getAllCoutries, getCountriesPaginat, getOneCountry, getMaxPage,
+  getAllCoutries, getCountriesPaginat, getOneCountry, getMaxPage, getError,
 } from './selectors/countrySelector';
-
-// historyReducer
-import fetchHistory from './thunks/history';
-export { fetchHistory };
-export { setHistory, addHistory } from './reducers/historySlice';
-import getAllHistory from './selectors/historySelector';
-export { getAllHistory };
-
-// favoriteReducer
-export { getFavoriteCountries, getFavoriteCca3 } from './selectors/favoriteSelector';
-export { addFavoriteCountry, setFavoriteCountry, deleteFavoriteCountry } from './reducers/favoriteSlice';
-import fetchFavorites from './thunks/favorites';
-export { fetchFavorites };
 
 // userReducer
 import setUser from './thunks/user';
-import getModal from './selectors/modalSelector';
 export { setUser };
 export { deleteUser } from './reducers/userSlice';
-export { getUser, getIsAuth } from './selectors/userSelector';
+export { getUser } from './selectors/userSelector';
 
 // modalReducer
+import getModal from './selectors/modalSelector';
 export { getModal };
 export {closeModal, openModal } from './reducers/modalSlice';
 

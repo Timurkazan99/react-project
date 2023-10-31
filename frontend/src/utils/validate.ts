@@ -1,20 +1,22 @@
+import { Dispatch, SetStateAction } from 'react';
+
 interface PropPass {
   passValue: string
-  setPassValue: React.Dispatch<React.SetStateAction<string>>
-  setPassErr: React.Dispatch<React.SetStateAction<string>>
+  setPassValue: Dispatch<SetStateAction<string>>
+  setPassErr: Dispatch<SetStateAction<string>>
 }
 
 interface PropRepeatPass {
   passValue: string
   repeatPass: string
-  setRepeatPass: React.Dispatch<React.SetStateAction<string>>
-  setRepeatErr: React.Dispatch<React.SetStateAction<string>>
+  setRepeatPass: Dispatch<SetStateAction<string>>
+  setRepeatErr: Dispatch<SetStateAction<string>>
 }
 
 interface PropLogin {
   loginValue: string
-  setLoginValue: React.Dispatch<React.SetStateAction<string>>
-  setLoginErr: React.Dispatch<React.SetStateAction<string>>
+  setLoginValue: Dispatch<SetStateAction<string>>
+  setLoginErr: Dispatch<SetStateAction<string>>
 }
 
 export function validateLogin({ loginValue, setLoginErr, setLoginValue }: PropLogin) {

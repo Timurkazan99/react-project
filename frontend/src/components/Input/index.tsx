@@ -1,4 +1,4 @@
-import React from 'react';
+import { ChangeEvent, FocusEvent } from 'react';
 import InputPswd from './InputPswd';
 import InputDefault from './InputDefault';
 import './Input.scss';
@@ -7,9 +7,9 @@ interface Props {
   error: string
   placeholder: string
   value: string
-  onChange: ({ target }: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: ({ target }: ChangeEvent<HTMLInputElement>) => void
   password?: boolean
-  onFocus?: ({ target }: React.FocusEvent<HTMLInputElement>) => void
+  onFocus?: ({ target }: FocusEvent<HTMLInputElement>) => void
 }
 
 function Input(props: Props) {

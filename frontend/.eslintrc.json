@@ -50,6 +50,12 @@
             "rules": {
                 "no-restricted-exports": "off"
             }
+        },
+        {
+            "files": ["src/store/reducers/*.ts"],
+            "rules": {
+                "no-param-reassign": "off"
+            }
         }
     ]
 }

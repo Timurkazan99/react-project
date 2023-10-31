@@ -1,7 +1,9 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
 export interface PayloadActionWithError extends PayloadAction {
-  error: string
+  error: {
+    message: string
+  }
 }
 
 export interface Image {
@@ -44,11 +46,10 @@ export interface History {
   timestamp: number
 }
 
-export type HistoryState = History[];
-
 export interface UserState {
   login: string
   password: string
+  isLoading: boolean
 }
 
 export interface CountryState {
@@ -57,8 +58,6 @@ export interface CountryState {
   isLoading: boolean,
   error: string,
 }
-
-export type FavoriteState = string[];
 
 export enum ModalStateTypes {
   SIGNIN,

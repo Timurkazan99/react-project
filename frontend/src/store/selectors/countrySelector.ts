@@ -19,3 +19,5 @@ export const getCountriesPaginat = (state: RootState, page: number, limit: numbe
 
 // eslint-disable-next-line  max-len
 export const getMaxPage = ({ country }: RootState, limit: number) => Math.ceil(country.AllCountries.length / limit);
+
+export const getError = ({ country }: RootState) => country.error;

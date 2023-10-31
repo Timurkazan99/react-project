@@ -1,4 +1,3 @@
-import React from 'react';
 import { createSearchParams, useNavigate, useSearchParams } from 'react-router-dom';
 import usePage from './hooks';
 import './PageList.scss';
@@ -9,7 +8,7 @@ function PageList() {
 
   const [activePage, lastPage, limit, pages] = usePage(searchParams);
 
-  if (lastPage === 1) {
+  if (lastPage <= 1) {
     return null;
   }
 

@@ -6,6 +6,7 @@ import setUser from '../thunks/user';
 const initialState: UserState = {
   login: '',
   password: '',
+  isLoading: true,
 };
 
 export const userSlice = createSlice({
@@ -18,7 +19,12 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: {
-    [setUser.fulfilled.type]: (state, action: PayloadAction<UserState>) => action.payload,
+    [setUser.pending.type]: (state) => {
+      state.isLoading = true;
+    },
+    [setUser.fulfilled.type]: (state, action: PayloadAction<UserState>) => (
+      { ...action.payload, isLoading: false }
+    ),
   },
 });
 
