@@ -20,16 +20,16 @@ export const getAll = async (): Promise<Country[]> => {
 
 export const getSearchedCountries = async (type: string, search: string): Promise<Country[]> => {
   const response = await axios.get(`https://restcountries.com/v3.1/${type}/${search}`, {
-    params: { fields: fullCountryFields },
+    params: { fields: countryFields },
   });
   return response.data.map(transformCountry);
 };
 
 export const getById = async (id: string): Promise<FullCountry> => {
   const response = await axios.get(`https://restcountries.com/v3.1/alpha/${id}`, {
-    params: { fields: countryFields },
+    params: { fields: fullCountryFields },
   });
-  return transformFullCountry(response.data[0]);
+  return transformFullCountry(response.data);
 };
 
 export const getFavoritesCountries = async (ids: string[]): Promise<Country[]> => {

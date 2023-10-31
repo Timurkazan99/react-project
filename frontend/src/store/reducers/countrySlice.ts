@@ -70,8 +70,12 @@ export const countrySlice = createSlice({
     },
     [fetchSearchedCountries.rejected.type]: (state, action: PayloadActionWithError) => {
       if (action.error.message !== 'Aborted') {
+        if (action.error.message !== 'Request failed with status code 404') {
+          state.error = action.error.message;
+        } else {
+          state.AllCountries = [];
+        }
         state.isLoading = false;
-        state.error = action.error.message;
       }
     },
   },
